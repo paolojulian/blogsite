@@ -1,3 +1,4 @@
+import colors from 'tailwindcss/colors';
 import Alert from './alert';
 import BookIcon from './atoms/BookIcon';
 import FabButton from './atoms/FabButton';
@@ -8,6 +9,7 @@ import ListIcon from './atoms/ListIcon';
 import SearchIcon from './atoms/SearchIcon';
 import Footer from './footer';
 import Meta from './meta';
+import Contact from './organisms/Contact';
 
 type Props = {
   preview?: boolean;
@@ -20,7 +22,12 @@ const Layout = ({ preview, children }: Props) => {
       <Meta />
       <div className='min-h-screen max-w-screen-2xl mx-auto'>
         <div className='flex'>
-          <div className='hidden lg:block w-20 h-screen min-h-screen'>
+          <div
+            className='hidden lg:block w-20 h-screen min-h-screen'
+            style={{
+              minWidth: '5rem',
+            }}
+          >
             <nav className='w-20 fixed flex flex-col justify-center items-center h-screen top-0 border-r px-2 text-stone-500 space-y-2'>
               <FabButton>
                 <HomeIcon />
@@ -34,11 +41,11 @@ const Layout = ({ preview, children }: Props) => {
               <FabButton>
                 <SearchIcon />
               </FabButton>
-              <FabButton>
-                <FacebookIcon />
+              <FabButton className="bg-blue-500 hover:bg-blue-400">
+                <FacebookIcon fill={colors.white} />
               </FabButton>
-              <FabButton>
-                <LinkedInIcon />
+              <FabButton className="bg-blue-600 hover:bg-blue-400">
+                <LinkedInIcon fill={colors.white} />
               </FabButton>
             </nav>
           </div>
@@ -46,7 +53,9 @@ const Layout = ({ preview, children }: Props) => {
             {children}
             <Footer />
           </main>
-          <div className='border-l lg:w-[300px] xl:w-[400px]'></div>
+          <div className='border-l hidden lg:block lg:w-[600px] xl:w-[600px]'>
+            <Contact />
+          </div>
         </div>
       </div>
     </>
