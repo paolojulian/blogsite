@@ -6,4 +6,5 @@
 
 html {
   font-family: Manrope, 'sans-serif';
+  @apply dark:text-white;
 }

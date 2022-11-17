@@ -11,7 +11,7 @@ const LinkedInIcon = forwardRef<SVGSVGElement, LinkedInIconProps>(
       <svg
         xmlns='http://www.w3.org/2000/svg'
         viewBox='0 0 448 512'
-        fill={colors.stone[500]}
+        fill={colors.gray[500]}
         strokeWidth={1.5}
         stroke='currentColor'
         className={` w-6 h-6 p-1 ${className}`}

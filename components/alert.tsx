@@ -1,6 +1,6 @@
-import Container from './container'
 import cn from 'classnames'
 import { EXAMPLE_PATH } from '../lib/constants'
+import Container from './container'
 
 type Props = {
   preview?: boolean
@@ -10,8 +10,8 @@ const Alert = ({ preview }: Props) => {
   return (
     <div
       className={cn('border-b', {
-        'bg-neutral-800 border-neutral-800 text-white': preview,
-        'bg-neutral-50 border-neutral-200': !preview,
+        'bg-gray-800 border-gray-800 text-white': preview,
+        'bg-gray-50 border-gray-200': !preview,
       })}
     >
       <Container>

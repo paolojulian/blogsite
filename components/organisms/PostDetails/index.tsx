@@ -28,13 +28,13 @@ const PostDetails: FunctionComponent<PostDetailsProps> = ({ post }) => {
       </Head>
 
       {/* Header */}
-      <div className='bg-stone-50 border-b border-stone-200 py-28'>
+      <div className='bg-gray-50 border-b border-gray-200 py-28'>
         <Container>
           <div className='flex flex-col space-y-1'>
-            <h1 className='text-stone-800 font-bold text-4xl w-3/4'>
+            <h1 className='text-gray-800 font-bold text-4xl w-3/4'>
               {post.title}
             </h1>
-            <h2 className='text-stone-400 text-xl'>
+            <h2 className='text-gray-400 text-xl'>
               <time dateTime={post.date} className='text-lg font-medium'>
                 {post.date}
               </time>

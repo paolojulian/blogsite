@@ -6,7 +6,11 @@
 .markdown ul,
 .markdown ol,
 .markdown blockquote {
-  @apply mb-4;
+  @apply mb-4 dark:text-gray-400;
+}
+
+.markdown strong {
+  @apply dark:text-white
 }
 
 .markdown a {
