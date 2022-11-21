@@ -49,3 +49,9 @@ const PostTitle = ({ children }: Props) => {
 ## Where does it come from?
 
 Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+
+
+## Let us test images
+![image](/assets/blog/dynamic-routing/cover.jpg)
+
+Aenean ex urna, vehicula ut ornare nec, consequat sit amet purus. Maecenas congue, arcu sed dignissim viverra, massa neque mollis lectus, nec rutrum urna nibh a eros. Praesent quis dapibus felis. Mauris dignissim diam quam. Sed pharetra turpis sit amet risus lobortis, ut lobortis arcu pharetra. Pellentesque facilisis finibus egestas. Donec aliquam diam et sapien pharetra pretium quis sodales felis. Ut fermentum bibendum pharetra. Mauris tempor et ipsum eu lobortis. Sed id molestie nisl. Pellentesque aliquam elementum egestas. In imperdiet at ante vehicula mollis.

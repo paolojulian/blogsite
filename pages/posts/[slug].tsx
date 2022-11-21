@@ -5,6 +5,7 @@ import Container from '../../components/container';
 import Header from '../../components/header';
 import Layout from '../../components/layout';
 import PostDetails from '../../components/organisms/PostDetails';
+import PostFooter from '../../components/organisms/PostFooter';
 import PostBody from '../../components/post-body';
 import PostHeader from '../../components/post-header';
 import PostTitle from '../../components/post-title';
@@ -45,6 +46,7 @@ export default function Post({ post, morePosts, preview }: Props) {
               author={post.author}
             />
             <PostBody content={post.content} />
+            <PostFooter />
           </article>
         </>
       )}

@@ -1,5 +1,4 @@
 import colors from 'tailwindcss/colors';
-import Alert from './alert';
 import BookIcon from './atoms/BookIcon';
 import FabButton from './atoms/FabButton';
 import FacebookIcon from './atoms/FacebookIcon';
@@ -20,11 +19,11 @@ const Layout = ({ preview, children }: Props) => {
   return (
     <>
       <Meta />
-      <div className='min-h-screen min-w-screen bg-white dark:bg-gray-900'>
-        <div className='min-h-screen max-w-screen-2xl mx-auto'>
-          <div className='flex'>
+      <div className='min-h-screen w-screen overflow-hidden bg-white dark:bg-gray-900'>
+        <div className='min-h-screen max-w-screen w-screen-md mx-auto overflow-hidden'>
+          <div className="sm:grid sm:grid-cols-[5rem_minmax(0,_1fr)] lg:grid-cols-[5rem_minmax(0,_1fr)_25rem] w-full">
             <div
-              className='hidden lg:block w-20 h-screen min-h-screen'
+              className='hidden sm:block w-20 h-screen min-h-screen'
               style={{
                 minWidth: '5rem',
               }}
@@ -54,7 +53,7 @@ const Layout = ({ preview, children }: Props) => {
               {children}
               <Footer />
             </main>
-            <div className='border-l border-gray-200 dark:border-gray-800 hidden lg:block lg:w-[600px] xl:w-[600px]'>
+            <div className='border-l border-gray-200 dark:border-gray-800 hidden lg:block w-full'>
               <Contact />
             </div>
           </div>
