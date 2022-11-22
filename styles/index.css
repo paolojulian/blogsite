@@ -8,3 +8,34 @@ html {
   font-family: Manrope, 'sans-serif';
   @apply dark:text-white;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #fafaf9;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border: 2px solid #fafaf9;
+  border-radius: 999px;
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
