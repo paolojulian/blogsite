@@ -1,10 +1,7 @@
 import ErrorPage from 'next/error';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import Container from '../../components/container';
-import Header from '../../components/header';
 import Layout from '../../components/layout';
-import PostDetails from '../../components/organisms/PostDetails';
 import PostFooter from '../../components/organisms/PostFooter';
 import PostBody from '../../components/post-body';
 import PostHeader from '../../components/post-header';
