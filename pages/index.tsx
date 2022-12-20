@@ -1,14 +1,33 @@
-import Head from 'next/head';
+import React, { FunctionComponent } from 'react';
 import Layout from '../components/layout';
+import PostCard from '../components/molecules/PostCard';
+import apiClient from '../lib/axios';
+import { Post } from '../lib/models';
 
-export default function Index() {
+export type HomeProps = {
+  preview?: boolean;
+  data: Post[];
+};
+
+const Home: FunctionComponent<HomeProps> = ({ data, preview }) => {
   return (
-    <>
-      <Layout>
-        <Head>
-          <title>Paolo Vincent Julian Blogsite</title>
-        </Head>
-      </Layout>
-    </>
+    <Layout preview={preview}>
+      <>
+        {data.map((post) => (
+          <PostCard key={post.id} post={post} href='/posts/lorem-ipsum' />
+        ))}
+      </>
+    </Layout>
   );
+};
+
+export async function getServerSideProps() {
+  const response = await apiClient.get('/api/posts');
+  if (!response.ok) {
+    throw new Error();
+  }
+
+  return { props: { data: response.data } };
 }
+
+export default Home;

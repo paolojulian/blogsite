@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import SectionTitle from '../../atoms/SectionTitle';
+import TextArea from '../../atoms/TextArea';
 import Container from '../../container';
 
 export type PostFooterProps = {
@@ -10,12 +11,11 @@ const PostFooter: FunctionComponent<PostFooterProps> = (props) => {
   return (
     <Container>
       <div className='mt-12'>
-        <SectionTitle>Write me a comment:</SectionTitle>
-
-        <textarea
-          className='w-full p-2 border border-gray-400 outline-blue-500 rounded-lg text-gray-800'
-          placeholder={`Say something...`}
+        <TextArea
+          label='Write me a comment'
+          placeholder='Say something...'
           rows={8}
+          openByDefault
         />
         <button
           type='submit'

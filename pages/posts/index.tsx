@@ -4,12 +4,12 @@ import PostCard from '../../components/molecules/PostCard';
 import apiClient from '../../lib/axios';
 import { Post } from '../../lib/models';
 
-export type PostListProps = {
+export type HomeProps = {
   preview?: boolean;
   data: Post[];
 };
 
-const PostList: FunctionComponent<PostListProps> = ({ data, preview }) => {
+const Home: FunctionComponent<HomeProps> = ({ data, preview }) => {
   return (
     <Layout preview={preview}>
       <>
@@ -30,4 +30,4 @@ export async function getServerSideProps() {
   return { props: { data: response.data } };
 }
 
-export default PostList;
+export default Home;

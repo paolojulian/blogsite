@@ -21,10 +21,10 @@ const Menu: FunctionComponent<MenuProps> = (props) => {
   return (
     <>
       <nav className='w-20 fixed flex flex-col justify-center items-center h-screen top-0 border-r border-gray-200 dark:border-gray-800 px-2 text-gray-500 space-y-2'>
-        <a href={'https://paolojulian.github.io'} target="__blank">
-          <MenuItem Icon={<HomeIcon />} label='Home' />
+        <MenuItem href='/' Icon={<HomeIcon />} label='Home' />
+        <a href={'https://paolojulian.github.io'} target='__blank'>
+          <MenuItem Icon={<BookIcon />} label='Portfolio' />
         </a>
-        <MenuItem href='/posts' Icon={<BookIcon />} label='Posts' />
         <MenuItem Icon={<ListIcon />} label='Components' />
         <MenuItem Icon={<SearchIcon />} label='Search' />
         <MenuItem
@@ -35,10 +35,17 @@ const Menu: FunctionComponent<MenuProps> = (props) => {
           }, [])}
         />
         <FabButton className='bg-blue-500 hover:bg-blue-400'>
-          <FacebookIcon fill={colors.white} />
+          <a
+            href={'https://www.facebook.com/profile.php?id=100078321445396'}
+            target='__blank'
+          >
+            <FacebookIcon fill={colors.white} />
+          </a>
         </FabButton>
         <FabButton className='bg-blue-600 hover:bg-blue-400'>
-          <LinkedInIcon fill={colors.white} />
+          <a href={'https://www.linkedin.com/in/pipz/'} target='__blank'>
+            <LinkedInIcon fill={colors.white} />
+          </a>
         </FabButton>
       </nav>
 

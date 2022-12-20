@@ -25,7 +25,7 @@ const PostCard: FunctionComponent<PostCardProps> = ({ post, href = '' }) => {
 
   return (
     <article
-      className='m-2 md:m-4 cursor-pointer overflow-hidden'
+      className='m-2 md:m-4 cursor-pointer overflow-hidden transition hover:bg-gray-50 active:bg-gray-100'
       onClick={handleClick}
     >
       <Container>
