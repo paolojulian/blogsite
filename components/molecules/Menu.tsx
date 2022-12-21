@@ -1,5 +1,6 @@
 import React, { FunctionComponent, useCallback, useState } from 'react';
 import colors from 'tailwindcss/colors';
+import useSearchStore from '../../store/search';
 import BookIcon from '../atoms/BookIcon';
 import FabButton from '../atoms/FabButton';
 import FacebookIcon from '../atoms/FacebookIcon';
@@ -9,6 +10,7 @@ import ListIcon from '../atoms/ListIcon';
 import MenuItem from '../atoms/MenuItem';
 import SearchIcon from '../atoms/SearchIcon';
 import SettingsIcon from '../atoms/SettingsIcon';
+import SearchModal from '../organisms/SearchModal';
 import SettingsModal from '../organisms/SettingsModal';
 
 export type MenuProps = {
@@ -17,6 +19,7 @@ export type MenuProps = {
 
 const Menu: FunctionComponent<MenuProps> = (props) => {
   const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
+  const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
 
   return (
     <>
@@ -26,13 +29,15 @@ const Menu: FunctionComponent<MenuProps> = (props) => {
           <MenuItem Icon={<BookIcon />} label='Portfolio' />
         </a>
         <MenuItem Icon={<ListIcon />} label='Components' />
-        <MenuItem Icon={<SearchIcon />} label='Search' />
+        <MenuItem
+          Icon={<SearchIcon />}
+          label='Search'
+          onClick={() => setIsSearchModalOpen((prev) => !prev)}
+        />
         <MenuItem
           Icon={<SettingsIcon />}
           label='Settings'
-          onClick={useCallback(() => {
-            setIsSettingsModalOpen((prev) => !prev);
-          }, [])}
+          onClick={() => setIsSettingsModalOpen((prev) => !prev)}
         />
         <FabButton className='bg-blue-500 hover:bg-blue-400'>
           <a
@@ -48,6 +53,12 @@ const Menu: FunctionComponent<MenuProps> = (props) => {
           </a>
         </FabButton>
       </nav>
+
+      <SearchModal
+        open={isSearchModalOpen}
+        onClose={setIsSearchModalOpen}
+        onDismiss={() => setIsSearchModalOpen(false)}
+      />
 
       <SettingsModal
         open={isSettingsModalOpen}

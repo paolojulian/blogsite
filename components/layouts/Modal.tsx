@@ -1,4 +1,5 @@
 import { Dialog, Transition } from '@headlessui/react';
+import classNames from 'classnames';
 import React, { Fragment, FunctionComponent, useCallback } from 'react';
 import { ExtractProps } from '../../lib/helpers';
 import CloseIcon from '../atoms/CloseIcon';
@@ -8,16 +9,20 @@ export type ModalProps = {
   subtitle?: string;
   size?: string;
   children?: React.ReactNode;
+  containerClass?: string;
   type?: 'Info' | 'Alert' | 'Dialog';
+  closeButton?: boolean;
 } & ExtractProps<typeof Dialog>;
 
 const Modal: FunctionComponent<ModalProps> = ({
   title,
   subtitle,
   children,
+  containerClass = '',
   size = 'max-w-2xl',
   type = 'Alert',
   open = false,
+  closeButton = true,
   onClose = () => {
     // Empty
   },
@@ -36,7 +41,7 @@ const Modal: FunctionComponent<ModalProps> = ({
           leaveFrom='opacity-100'
           leaveTo='opacity-0'
         >
-          <div className='fixed inset-0 bg-black/75' aria-hidden='true' />
+          <div className='fixed inset-0 bg-black/50' aria-hidden='true' />
         </Transition.Child>
 
         {/* Content */}
@@ -51,7 +56,10 @@ const Modal: FunctionComponent<ModalProps> = ({
             leaveTo='opacity-0 scale-95'
           >
             <Dialog.Panel
-              className={`${size} w-full bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg relative`}
+              className={classNames(
+                `${size} w-full bg-white dark:bg-gray-800 shadow-lg relative`,
+                containerClass
+              )}
             >
               {(title || subtitle) && (
                 <div className='border-b border-gray-700 pb-4 mb-4'>
@@ -64,29 +72,31 @@ const Modal: FunctionComponent<ModalProps> = ({
                 </div>
               )}
 
-              <div className='absolute top-4 right-4'>
-                <button
-                  className='p-1 transition-colors group bg-red-500 hover:bg-red-700 rounded-full'
-                  onClick={useCallback(() => onClose(false), [onClose])}
-                >
-                  <CloseIcon className='h-3 w-3 transition-colors text-red-500 group-hover:text-white' />
-                </button>
-              </div>
+              {closeButton ? (
+                <div className='absolute top-4 right-4'>
+                  <button
+                    className='p-1 transition-colors group bg-red-500 hover:bg-red-700 rounded-full'
+                    onClick={useCallback(() => onClose(false), [onClose])}
+                  >
+                    <CloseIcon className='h-3 w-3 transition-colors text-red-500 group-hover:text-white' />
+                  </button>
+                </div>
+              ) : null}
 
               <div className=''>{children}</div>
-
-              <div className='flex justify-end space-x-2 mt-8'>
-                {type === 'Dialog' && (
-                  <button className='py-2 px-4 transition-colors bg-gray-700 hover:bg-gray-900 text-white rounded-lg'>
-                    Cancel
-                  </button>
-                )}
-                {type !== 'Info' && (
-                  <button className='py-2 px-4 transition-colors bg-blue-500 hover:bg-blue-700 text-white rounded-lg'>
-                    Ok
-                  </button>
-                )}
-              </div>
+              {type === 'Dialog' || type !== 'Info' ? (
+                <div className='flex justify-end space-x-2 mt-8'>
+                  {type === 'Dialog' ? (
+                    <button className='py-2 px-4 transition-colors bg-gray-700 hover:bg-gray-900 text-white rounded-lg'>
+                      Cancel
+                    </button>
+                  ) : (
+                    <button className='py-2 px-4 transition-colors bg-blue-500 hover:bg-blue-700 text-white rounded-lg'>
+                      Ok
+                    </button>
+                  )}
+                </div>
+              ) : null}
             </Dialog.Panel>
           </Transition.Child>
         </div>

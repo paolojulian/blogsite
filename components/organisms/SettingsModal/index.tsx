@@ -51,7 +51,7 @@ const SettingsModal: FunctionComponent<SettingsModalProps> = ({ ...props }) => {
   };
 
   return (
-    <Modal title='Settings' size='max-w-md' type='Info' {...props}>
+    <Modal title='Settings' containerClass='p-8' size='max-w-md' type='Info' {...props}>
       <div className='flex flex-col space-y-2'>
         {/* Appearance */}
         <div>

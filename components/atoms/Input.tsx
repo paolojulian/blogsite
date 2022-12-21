@@ -22,10 +22,10 @@ const Input: FunctionComponent<InputProps> = ({ label, ...props }) => {
   return (
     <div
       className={classNames(
-        'relative rounded-xl overflow-hidden',
+        'relative overflow-hidden',
         'bg-gray-100',
         'border border-gray-100',
-        'focus-within:ring-gray-800 focus-within:ring-2'
+        'focus-within:ring-gray-600 focus-within:ring-2'
       )}
     >
       <div
@@ -52,7 +52,7 @@ const Input: FunctionComponent<InputProps> = ({ label, ...props }) => {
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         className={classNames(
-          'py-6 px-2 pb-2 rounded-xl transparent w-full z-10 ring-0 outline-none',
+          'py-6 px-2 pb-2 transparent w-full z-10 ring-0 outline-none',
           'bg-transparent',
           'font-medium',
           'transition-opacity',
