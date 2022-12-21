@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React, { FunctionComponent, useCallback, useState } from 'react';
 import colors from 'tailwindcss/colors';
 import useSearchStore from '../../store/search';
@@ -23,7 +24,15 @@ const Menu: FunctionComponent<MenuProps> = (props) => {
 
   return (
     <>
-      <nav className='w-20 fixed flex flex-col justify-center items-center h-screen top-0 border-r border-gray-200 dark:border-gray-800 px-2 text-gray-500 space-y-2'>
+      <nav
+        className={classNames(
+          'px-2 py-2 sm:py-0 text-gray-500',
+          'sm:border-r border-gray-200 dark:border-gray-800',
+          'w-screen sm:w-20 sm:h-screen',
+          'sm:fixed sm:top-0',
+          'flex sm:flex-col justify-center items-center space-x-2 sm:space-y-2'
+        )}
+      >
         <MenuItem href='/' Icon={<HomeIcon />} label='Home' />
         <a href={'https://paolojulian.github.io'} target='__blank'>
           <MenuItem Icon={<BookIcon />} label='Portfolio' />
@@ -39,7 +48,7 @@ const Menu: FunctionComponent<MenuProps> = (props) => {
           label='Settings'
           onClick={() => setIsSettingsModalOpen((prev) => !prev)}
         />
-        <FabButton className='bg-blue-500 hover:bg-blue-400'>
+        <FabButton className='bg-blue-500 hover:bg-blue-400 hidden sm:block'>
           <a
             href={'https://www.facebook.com/profile.php?id=100078321445396'}
             target='__blank'
@@ -47,7 +56,7 @@ const Menu: FunctionComponent<MenuProps> = (props) => {
             <FacebookIcon fill={colors.white} />
           </a>
         </FabButton>
-        <FabButton className='bg-blue-600 hover:bg-blue-400'>
+        <FabButton className='bg-blue-600 hover:bg-blue-400 hidden sm:block'>
           <a href={'https://www.linkedin.com/in/pipz/'} target='__blank'>
             <LinkedInIcon fill={colors.white} />
           </a>

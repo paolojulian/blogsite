@@ -1,18 +1,21 @@
-import Footer from './footer';
-import Meta from './meta';
-import Menu from './molecules/Menu';
-import Contact from './organisms/Contact';
+import Footer from '../footer';
+import Meta from '../meta';
+import Menu from '../molecules/Menu';
+import Contact from '../organisms/Contact';
 
 type Props = {
   preview?: boolean;
   children: React.ReactNode;
 };
 
-const Layout = ({ children }: Props) => {
+const MainLayout = ({ children }: Props) => {
   return (
     <>
       <Meta />
       <div className='min-h-screen w-screen overflow-hidden bg-white dark:bg-gray-900 text-gray-900 dark:text-white'>
+        <div className="fixed bottom-0 sm:hidden bg-white">
+          <Menu />
+        </div>
         <div className='min-h-screen max-w-screen w-screen-md mx-auto overflow-hidden'>
           <div className='w-full sm:grid sm:grid-cols-[5rem_minmax(0,_1fr)] lg:grid-cols-[5rem_minmax(0,_50rem)_22rem] mx-auto justify-center overflow-hidden'>
             <div
@@ -54,4 +57,4 @@ const Layout = ({ children }: Props) => {
   );
 };
 
-export default Layout;
+export default MainLayout;
