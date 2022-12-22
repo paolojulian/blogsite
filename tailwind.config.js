@@ -3,11 +3,11 @@ const colors = require('tailwindcss/colors');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: 'class',
-  content: ['./app/**/*.tsx', './components/**/*.tsx', './pages/**/*.tsx'],
+  content: ['./app/**/*.tsx', './src/**/*.tsx'],
   theme: {
     extend: {
       colors: {
-        gray: colors.zinc,
+        gray: colors.neutral,
         'accent-1': '#FAFAFA',
         'accent-2': '#EAEAEA',
         'accent-7': '#333',
