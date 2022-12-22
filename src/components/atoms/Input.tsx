@@ -25,6 +25,7 @@ const Input: FunctionComponent<InputProps> = ({ label, ...props }) => {
         'relative overflow-hidden',
         'bg-gray-100',
         'border border-gray-100',
+        'rounded-sm',
         'focus-within:ring-gray-600 focus-within:ring-2'
       )}
     >
@@ -32,8 +33,8 @@ const Input: FunctionComponent<InputProps> = ({ label, ...props }) => {
         className={classNames(
           'absolute inset-0 flex items-center font-bold text-sm uppercase px-4',
           'text-gray-700',
-          'transition-transform duration-75',
-          isOpened ? 'scale-0' : 'scale-100'
+          'transition-opacity',
+          isOpened ? 'opacity-0' : 'opacity-100'
         )}
       >
         {label}
@@ -41,7 +42,7 @@ const Input: FunctionComponent<InputProps> = ({ label, ...props }) => {
       <label
         className={classNames(
           'transition-transform absolute top-2 left-2 text-xs font-bold text-gray-600 uppercase',
-          'transition-transform duration-100',
+          'transition-transform',
           isOpened ? 'scale-100' : 'scale-0'
         )}
       >

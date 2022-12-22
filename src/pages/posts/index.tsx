@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import Layout from '../../components/layout';
+import MainLayout from '../../components/layouts/Main';
 import PostCard from '../../components/molecules/PostCard';
 import apiClient from '../../lib/axios';
 import { Post } from '../../lib/models';
@@ -11,13 +11,13 @@ export type HomeProps = {
 
 const Home: FunctionComponent<HomeProps> = ({ data, preview }) => {
   return (
-    <Layout preview={preview}>
+    <MainLayout preview={preview}>
       <>
         {data.map((post) => (
           <PostCard key={post.id} post={post} href='/posts/lorem-ipsum' />
         ))}
       </>
-    </Layout>
+    </MainLayout>
   );
 };
 

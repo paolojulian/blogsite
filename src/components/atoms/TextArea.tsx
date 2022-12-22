@@ -34,6 +34,7 @@ const TextArea: FunctionComponent<TextAreaProps> = ({
         'relative overflow-hidden',
         'bg-gray-100',
         'border border-gray-100',
+        'rounded-sm',
         'focus-within:ring-gray-800 focus-within:ring-2'
       )}
     >

@@ -26,7 +26,7 @@ const Contact: FunctionComponent<ContactProps> = (props) => {
         />
         <button
           type='submit'
-          className='p-2 w-full bg-gray-800 dark:bg-gray-50 hover:bg-gray-700 dark:hover:bg-gray-300 transition rounded-xl'
+          className='p-2 w-full bg-gray-800 dark:bg-gray-50 hover:bg-gray-700 dark:hover:bg-gray-300 transition rounded-sm'
         >
           <span className='uppercase font-bold text-white dark:text-gray-900'>
             Send

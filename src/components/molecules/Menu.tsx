@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { useRouter } from 'next/router';
 import React, { FunctionComponent, useCallback, useState } from 'react';
 import colors from 'tailwindcss/colors';
 import useSearchStore from '../../store/search';
@@ -21,23 +22,27 @@ export type MenuProps = {
 const Menu: FunctionComponent<MenuProps> = (props) => {
   const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
   const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
+  const router = useRouter();
 
   return (
     <>
       <nav
         className={classNames(
-          'px-2 py-2 sm:py-0 text-gray-500',
-          'sm:border-r border-gray-200 dark:border-gray-800',
-          'w-screen sm:w-20 sm:h-screen',
           'sm:fixed sm:top-0',
-          'flex sm:flex-col justify-center items-center space-x-2 sm:space-y-2'
+          'px-2 py-2 sm:py-0',
+          'w-screen sm:w-20 sm:h-screen',
+          'text-gray-500',
+          'sm:border-r border-gray-200 dark:border-gray-800',
+          'flex sm:flex-col justify-center items-center space-x-2 sm:space-x-0 sm:space-y-2'
         )}
       >
         <MenuItem href='/' Icon={<HomeIcon />} label='Home' />
         <a href={'https://paolojulian.github.io'} target='__blank'>
           <MenuItem Icon={<BookIcon />} label='Portfolio' />
         </a>
-        <MenuItem Icon={<ListIcon />} label='Components' />
+        <MenuItem Icon={<ListIcon />} label='Components'
+          onClick={() => router.push('/components')}
+        />
         <MenuItem
           Icon={<SearchIcon />}
           label='Search'
