@@ -1,5 +1,20 @@
 const colors = require('tailwindcss/colors');
 
+const CUSTOM_COLORS = {
+  carnation: {
+    50: '#fef3f2',
+    100: '#ffe4e1',
+    200: '#ffcdc8',
+    300: '#ffaaa2',
+    400: '#fd786c',
+    500: '#f65d4f',
+    600: '#e32f1f',
+    700: '#bf2416',
+    800: '#9e2116',
+    900: '#832219',
+  },
+};
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: 'class',
@@ -7,6 +22,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        primary: CUSTOM_COLORS.carnation,
         gray: colors.neutral,
         'accent-1': '#FAFAFA',
         'accent-2': '#EAEAEA',
@@ -36,4 +52,4 @@ module.exports = {
     },
   },
   plugins: [],
-}
+};
