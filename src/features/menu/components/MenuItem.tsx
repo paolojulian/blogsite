@@ -38,6 +38,7 @@ const MenuItem: FunctionComponent<MenuItemProps> = ({ isActive, variant }) => {
     <Stack
       className={classNames(
         'relative justify-center items-center w-20 h-20 rounded-full',
+        'select-none',
         'cursor-pointer',
         'transition duration-100 active:scale-90',
         isActive
