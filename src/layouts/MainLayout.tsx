@@ -9,11 +9,11 @@ export type MainLayoutProps = {
 
 const MainLayout: FunctionComponent<MainLayoutProps> = ({ children }) => {
   return (
-    <Stack className='bg-primary-500 w-screen min-h-screen'>
+    <Stack className='bg-gray-900 w-screen max-h-screen'>
       <Row className="flex-1">
         <Menu />
-        <div className="pr-4 py-4 flex-1">
-          <main className='bg-slate-50 w-full h-full rounded-[5rem] overflow-y-auto'>
+        <div className="pr-4 py-4 flex-1 h-screen">
+          <main className='bg-gray-50 w-full h-full rounded-[5rem] overflow-y-auto'>
             {children}
           </main>
         </div>

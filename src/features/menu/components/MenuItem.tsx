@@ -37,7 +37,7 @@ const MenuItem: FunctionComponent<MenuItemProps> = ({ isActive, variant }) => {
   return (
     <Stack
       className={classNames(
-        'relative justify-center items-center w-20 h-20 rounded-full',
+        'relative justify-center items-center w-14 h-14 rounded-full',
         'select-none',
         'cursor-pointer',
         'transition duration-100 active:scale-90',
@@ -55,7 +55,7 @@ const MenuItem: FunctionComponent<MenuItemProps> = ({ isActive, variant }) => {
           )}
         ></div>
       )}
-      <Image className='z-10' src={MenuLogoVariants[variant]} alt={variant} />
+      <Image className='z-10 w-7 h-7' src={MenuLogoVariants[variant]} alt={variant} />
     </Stack>
   );
 };

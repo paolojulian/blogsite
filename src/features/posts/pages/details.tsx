@@ -15,7 +15,7 @@ const PostDetails: FunctionComponent<PostDetailsProps> = (props) => {
   return (
     <MainLayout>
       <PostProvider selectedPost={props.post}>
-        <Row>
+        <Row className='w-full h-full'>
           <Blog />
           <BlogListMenu />
         </Row>

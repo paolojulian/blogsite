@@ -1,9 +1,23 @@
+import classNames from 'classnames';
+
+type ContainerSizes = 'md' | 'sm';
+
 type Props = {
-  children?: React.ReactNode
-}
+  children?: React.ReactNode;
+  size?: ContainerSizes;
+};
 
-const Container = ({ children }: Props) => {
-  return <div className="container mx-auto p-4 md:p-8">{children}</div>
-}
+const sizes: Record<ContainerSizes, string> = {
+  md: 'p-4 md:p-8',
+  sm: 'p-8 md:p-16',
+};
 
-export default Container
+const Container = ({ children, size = 'md' }: Props) => {
+  return (
+    <div className={classNames('container mx-auto', sizes[size])}>
+      {children}
+    </div>
+  );
+};
+
+export default Container;
