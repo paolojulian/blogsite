@@ -1,3 +1,4 @@
+import PostDetails from 'features/posts/pages/details';
 import ErrorPage from 'next/error';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -24,30 +25,31 @@ export default function Post({ post, morePosts, preview }: Props) {
   }
 
   return (
-    <MainLayout preview={preview}>
-      {router.isFallback ? (
-        <PostTitle>Loading…</PostTitle>
-      ) : (
-        <>
-          <article className='mb-32'>
-            <Head>
-              <title>
-                {post.title} | {CMS_NAME}
-              </title>
-              <meta property='og:image' content={post.ogImage.url} />
-            </Head>
-            <PostHeader
-              title={post.title}
-              coverImage={post.coverImage}
-              date={post.date}
-              author={post.author}
-            />
-            <PostBody content={post.content} />
-            <PostFooter />
-          </article>
-        </>
-      )}
-    </MainLayout>
+    <PostDetails isLoading={router.isFallback} post={post} />
+    // <MainLayout preview={preview}>
+    //   {router.isFallback ? (
+    //     <PostTitle>Loading…</PostTitle>
+    //   ) : (
+    //     <>
+    //       <article className='mb-32'>
+    //         <Head>
+    //           <title>
+    //             {post.title} | {CMS_NAME}
+    //           </title>
+    //           <meta property='og:image' content={post.ogImage.url} />
+    //         </Head>
+    //         <PostHeader
+    //           title={post.title}
+    //           coverImage={post.coverImage}
+    //           date={post.date}
+    //           author={post.author}
+    //         />
+    //         <PostBody content={post.content} />
+    //         <PostFooter />
+    //       </article>
+    //     </>
+    //   )}
+    // </MainLayout>
   );
 }
 

@@ -13,7 +13,7 @@ const MainLayout: FunctionComponent<MainLayoutProps> = ({ children }) => {
       <Row className="flex-1">
         <Menu />
         <div className="pr-4 py-4 flex-1">
-          <main className='bg-slate-100 w-full h-full rounded-[5rem] overflow-y-auto'>
+          <main className='bg-slate-50 w-full h-full rounded-[5rem] overflow-y-auto'>
             {children}
           </main>
         </div>
