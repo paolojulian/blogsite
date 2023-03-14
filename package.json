@@ -9,6 +9,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.4",
     "@next/font": "^13.0.3",
+    "@tailwindcss/line-clamp": "^0.4.2",
     "apisauce": "^2.1.6",
     "axios": "^1.2.0",
     "babel-plugin-prismjs": "^2.1.0",
