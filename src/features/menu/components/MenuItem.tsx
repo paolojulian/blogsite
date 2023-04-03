@@ -14,6 +14,7 @@ type MenuItemVariants =
 export type MenuItemProps = {
   isActive: boolean;
   variant: MenuItemVariants;
+  onClick?: () => void;
 };
 
 const MenuLogoVariants: Record<MenuItemVariants, StaticImageData> = {
@@ -25,7 +26,13 @@ const MenuLogoVariants: Record<MenuItemVariants, StaticImageData> = {
   settings: require('../assets/images/settings.png'),
 };
 
-const MenuItem: FunctionComponent<MenuItemProps> = ({ isActive, variant }) => {
+const MenuItem: FunctionComponent<MenuItemProps> = ({
+  isActive,
+  variant,
+  onClick = () => {
+    /** */
+  },
+}) => {
   const [mouseUp, setMouseUp] = useState(false);
   const handleMouseUp = () => {
     setMouseUp(true);
@@ -46,6 +53,7 @@ const MenuItem: FunctionComponent<MenuItemProps> = ({ isActive, variant }) => {
           : 'bg-none hover:bg-primary-900'
       )}
       onMouseUp={handleMouseUp}
+      onClick={onClick}
     >
       {mouseUp && (
         <div
@@ -55,7 +63,11 @@ const MenuItem: FunctionComponent<MenuItemProps> = ({ isActive, variant }) => {
           )}
         ></div>
       )}
-      <Image className='z-10 w-7 h-7' src={MenuLogoVariants[variant]} alt={variant} />
+      <Image
+        className='z-10 w-7 h-7'
+        src={MenuLogoVariants[variant]}
+        alt={variant}
+      />
     </Stack>
   );
 };
