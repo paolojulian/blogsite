@@ -27,7 +27,7 @@ const data = [
 ];
 const Career: FunctionComponent<CareerProps> = () => {
   return (
-    <Stack className="items-center bg-transparent text-white py-24 gap-24">
+    <Stack className="items-center bg-transparent text-white py-24 mb-32 gap-24">
       <Stack className="gap-8 text-center  max-w-screen-lg px-12 mx-auto">
         <h1 className="text-3xl font-bold tracking-wide uppercase">Career</h1>
       </Stack>

@@ -23,7 +23,7 @@ module.exports = {
     extend: {
       colors: {
         bg: "#181a25",
-        primary: CUSTOM_COLORS.carnation,
+        primary: colors.cyan,
         gray: colors.neutral,
         "accent-1": "#FAFAFA",
         "accent-2": "#EAEAEA",
@@ -49,6 +49,7 @@ module.exports = {
       boxShadow: {
         sm: "0 5px 10px rgba(0, 0, 0, 0.12)",
         md: "0 8px 30px rgba(0, 0, 0, 0.12)",
+        glowPrimary: "0px 4px 35px 14px rgba(207, 151, 171, 0.25)",
       },
     },
   },

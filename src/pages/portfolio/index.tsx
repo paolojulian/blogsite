@@ -12,11 +12,17 @@ export type PortfolioPageProps = {
 const PortfolioPage: FunctionComponent<PortfolioPageProps> = () => {
   return (
     <MainLayout>
-      <div className="bg-[#181a25] w-full">
+      <div className="bg-bg w-full">
         <LandingPage />
         <Projects />
         <Career />
-        <Contact />
+        <Contact
+          name="Paolo Vincent M. Julian"
+          course="Software Engineer"
+          email="paolojulian.personal@gmail.com"
+          address="#100 Upper Dagsian, Baguio City"
+          mobileNo="+639279488654"
+        />
       </div>
     </MainLayout>
   );
