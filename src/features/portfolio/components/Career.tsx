@@ -1,3 +1,7 @@
+import classNames from "classnames";
+import AnimateOnIntersect, {
+  AnimateOnIntersectContext,
+} from "components/Animations/AnimateOnIntersect";
 import Stack from "layouts/Stack";
 import React, { FunctionComponent } from "react";
 
@@ -29,7 +33,29 @@ const Career: FunctionComponent<CareerProps> = () => {
   return (
     <Stack className="items-center bg-transparent text-white py-24 mb-32 gap-24">
       <Stack className="gap-8 text-center  max-w-screen-lg px-12 mx-auto">
-        <h1 className="text-3xl font-bold tracking-wide uppercase">Career</h1>
+        <AnimateOnIntersect
+          options={{
+            root: null,
+            rootMargin: "0px 0px -100px 0px",
+            threshold: 1.0,
+          }}
+        >
+          <AnimateOnIntersectContext.Consumer>
+            {({ isInView }) => (
+              <h1
+                className={classNames(
+                  "text-3xl font-bold tracking-wide uppercase",
+                  "transition duration-1000",
+                  isInView
+                    ? "opacity-1 translate-x-0"
+                    : "transition opacity-0 -translate-x-96"
+                )}
+              >
+                Career
+              </h1>
+            )}
+          </AnimateOnIntersectContext.Consumer>
+        </AnimateOnIntersect>
       </Stack>
       <Stack className="container max-w-screen-lg">
         {data.map((item, i) => (

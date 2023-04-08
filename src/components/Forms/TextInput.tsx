@@ -25,7 +25,7 @@ export type TextInputProps = {
 } & InputHTMLAttributes<HTMLInputElement>;
 
 const colorTheme: Record<TextInputTheme, string> = {
-  default: "bg-gray-200 hover:bg-gray-300/80",
+  default: "bg-gray-100 hover:bg-gray-200/80",
   white: "bg-white",
 };
 

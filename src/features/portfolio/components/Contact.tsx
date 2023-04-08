@@ -38,7 +38,7 @@ const Contact: FunctionComponent<ContactProps> = () => {
               possible
             </p>
           </Stack>
-          <Stack className="space-y-2 w-full max-w-screen-sm mx-auto px-8">
+          <Stack className="space-y-2 w-full max-w-md mx-auto px-8">
             <TextInput label="Name" name="Name" value="" />
             <TextInput label="Email" name="Email" value="" />
             <TextInput label="Message" name="Message" value="" />
@@ -49,28 +49,28 @@ const Contact: FunctionComponent<ContactProps> = () => {
           <Stack className="max-w-screen-md w-full py-4 px-8 mx-auto space-y-8 items-center">
             <div className="w-full border border-t-gray-100" />
             <Row className="space-x-4 justify-center">
-              <div className="rounded-full h-16 w-16 relative">
+              <div className="rounded-full h-12 w-12 relative">
                 <Image
                   src={"/assets/portfolio/logo-facebook.svg"}
                   alt="Facebook"
                   fill
                 />
               </div>
-              <div className="rounded-full h-16 w-16 relative">
+              <div className="rounded-full h-12 w-12 relative">
                 <Image
                   src={"/assets/portfolio/logo-github.svg"}
                   alt="Facebook"
                   fill
                 />
               </div>
-              <div className="rounded-full h-16 w-16 relative">
+              <div className="rounded-full h-12 w-12 relative">
                 <Image
                   src={"/assets/portfolio/logo-linkedin.svg"}
                   alt="Facebook"
                   fill
                 />
               </div>
-              <div className="rounded-full h-16 w-16 relative">
+              <div className="rounded-full h-12 w-12 relative">
                 <Image
                   src={"/assets/portfolio/mail-sharp.svg"}
                   alt="Facebook"
