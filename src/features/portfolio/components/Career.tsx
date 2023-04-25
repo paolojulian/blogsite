@@ -1,9 +1,8 @@
-import classNames from "classnames";
-import AnimateOnIntersect, {
-  AnimateOnIntersectContext,
-} from "components/Animations/AnimateOnIntersect";
-import Stack from "layouts/Stack";
-import React, { FunctionComponent } from "react";
+import Stack from 'layouts/Stack';
+import React, { FunctionComponent } from 'react';
+import CareerCard from './Career/CareerCard';
+import SectionHeader from './common/SectionHeader';
+import TextHighlight from './common/TextHighlight';
 
 export type CareerProps = {
   // No Props
@@ -11,91 +10,124 @@ export type CareerProps = {
 
 const data = [
   {
-    date: "August 2017",
-    title: "Utalk",
+    date: 'August 2017',
+    title: 'Utalk',
     description:
-      "Learned Vue.js, also was appointed to lead the team on the vue.js project for a School Management System",
+      'Learned Vue.js, also was appointed to lead the team on the vue.js project for a School Management System',
   },
   {
-    date: "September 2019",
-    title: "YNS Philippines Inc.",
+    date: 'September 2019',
+    title: 'YNS Philippines Inc.',
     description:
-      "Learned many systems like Live streaming service, gambling sites and Website management system. Mainly used Laravel, CakePHP, VueJS and ReactJS",
+      'Learned many systems like Live streaming service, gambling sites and Website management system. Mainly used Laravel, CakePHP, VueJS and ReactJS',
   },
   {
-    date: "September 2021",
-    title: "Yondu",
+    date: 'September 2021',
+    title: 'Yondu',
     description:
-      "Gambling site, election app, seat/room reservation app, hr management tool. Mainly used Nuxt.js and Next.js",
+      'Gambling site, election app, seat/room reservation app, hr management tool. Mainly used Nuxt.js and Next.js',
   },
 ];
 const Career: FunctionComponent<CareerProps> = () => {
   return (
-    <Stack className="items-center bg-transparent text-white py-24 mb-32 gap-24">
-      <Stack className="gap-8 text-center  max-w-screen-lg px-12 mx-auto">
-        <AnimateOnIntersect
-          options={{
-            root: null,
-            rootMargin: "0px 0px -100px 0px",
-            threshold: 1.0,
-          }}
-        >
-          <AnimateOnIntersectContext.Consumer>
-            {({ isInView }) => (
-              <h1
-                className={classNames(
-                  "text-3xl font-bold tracking-wide uppercase",
-                  "transition duration-1000",
-                  isInView
-                    ? "opacity-1 translate-x-0"
-                    : "transition opacity-0 -translate-x-96"
-                )}
-              >
-                Career
-              </h1>
-            )}
-          </AnimateOnIntersectContext.Consumer>
-        </AnimateOnIntersect>
+    <div className='max-w-screen-lg mx-auto my-32'>
+      <Stack className='bg-transparent text-white py-32 space-y-24'>
+        <SectionHeader
+          title='CAREER'
+          description={"A Software Engineer's tale"}
+        />
+
+        <Stack className='space-y-24'>
+          <CareerCard
+            HeaderComponent={
+              <CareerCard.Header
+                year={2017}
+                title='Beijing Bangnishou Unlimited Philippines Inc'
+                flag={<></>}
+              ></CareerCard.Header>
+            }
+            DescriptionComponent={
+              <p>
+                Still a clumsy{' '}
+                <TextHighlight textColor='text-green-500'>
+                  Junior Software Application Developer
+                </TextHighlight>{' '}
+                who thinks he knows it all. Got a huge experience in
+                implementing a{' '}
+                <TextHighlight textColor='text-green-600'>VueJS</TextHighlight>{' '}
+                single page application project back when it was still new.
+              </p>
+            }
+            apps={['School Management System']}
+          />
+          <CareerCard
+            HeaderComponent={
+              <CareerCard.Header
+                year={2019}
+                title='YNS Philippines Inc'
+                flag={<></>}
+              ></CareerCard.Header>
+            }
+            DescriptionComponent={
+              <p>
+                Promoted to being a{' '}
+                <TextHighlight textColor='text-blue-400'>
+                  Mid Full-Stack Developer
+                </TextHighlight>
+                . Still flashy and over-engineered coding, was able to gain
+                experience in 3rd party API integrations like{' '}
+                <TextHighlight textColor='text-slate-200'>
+                  FacebookAPI, Stripe, Twilio, etc.
+                </TextHighlight>
+              </p>
+            }
+            apps={[
+              'Live Streaming Service',
+              'Gambling Site',
+              'Room for rent',
+              'IT Management System',
+            ]}
+          />
+          <CareerCard
+            HeaderComponent={
+              <CareerCard.Header
+                year={2021}
+                title='Yondu'
+                flag={<></>}
+              ></CareerCard.Header>
+            }
+            DescriptionComponent={
+              <p>
+                Specialized in{' '}
+                <TextHighlight textColor='text-blue-400'>
+                  Front-end Development
+                </TextHighlight>{' '}
+                and was in loved with
+                <TextHighlight textColor='text-sky-300'>
+                  {' '}
+                  TailwindCSS
+                </TextHighlight>
+                . Trying hard to follow the{' '}
+                <TextHighlight>“KISS”</TextHighlight> principle in most
+                projects. Helped in developing a{' '}
+                <TextHighlight textColor='text-yellow-400'>
+                  {' '}
+                  million dollar app
+                </TextHighlight>
+                .
+              </p>
+            }
+            apps={[
+              'Gambling Site',
+              'Reservation App (Parking, Seats, Room)',
+              'Election App',
+              'Microfrontend',
+              'Single Codebase App (React-native-web)',
+            ]}
+          />
+        </Stack>
       </Stack>
-      <Stack className="container max-w-screen-lg">
-        {data.map((item, i) => (
-          <div className="grid grid-cols-[1fr,3px,1fr] gap-8" key={i}>
-            {/* Left */}
-            {i % 2 === 0 ? (
-              <Stack className="pb-12 text-right">
-                <div className="text-gray-500 uppercase text-sm">
-                  {item.date}
-                </div>
-                <h4 className="text-white font-semibold text-xl">
-                  {item.title}
-                </h4>
-                <p className="text-gray-400">{item.description}</p>
-              </Stack>
-            ) : (
-              <div className="col-auto">&nbsp;</div>
-            )}
-            <Stack className="items-center">
-              <div className="h-3 w-3 rounded-full bg-white"></div>
-              <div className="h-full w-0.5 bg-white"></div>
-            </Stack>
-            {/* Right */}
-            {i % 2 !== 0 ? (
-              <Stack className="pb-12">
-                <div className="text-gray-500 uppercase text-sm">
-                  {item.date}
-                </div>
-                <h4 className="text-white font-semibold text-xl">
-                  {item.title}
-                </h4>
-                <p className="text-gray-400">{item.description}</p>
-              </Stack>
-            ) : (
-              <div className="col-auto">&nbsp;</div>
-            )}
-          </div>
-        ))}
-      </Stack>
-    </Stack>
+    </div>
   );
 };
 

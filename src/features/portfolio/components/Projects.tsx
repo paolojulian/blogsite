@@ -19,11 +19,13 @@ const Projects: FunctionComponent<ProjectsProps> = () => {
       <div className='max-w-screen-lg mx-auto'>
         <Stack className='space-y-12'>
           <Stack className='space-y-8'>
-            <SectionHeader title='ABOUT' description='Software Engineer' />
+            <SectionHeader
+              title='ABOUT'
+              description={`Hi! I am Paolo Vincent Julian`}
+            />
             <p className='text-slate-500 text-left text-2xl'>
-              Hi, I'm <TextHighlight>Paolo Vincent Julian</TextHighlight>, I
-              started my journey on <TextHighlight>2017</TextHighlight>. I excel
-              in creating responsive web-apps using JavaScript frameworks,
+              I started my journey on <TextHighlight>2017</TextHighlight>. I
+              excel in creating responsive web-apps using JavaScript frameworks,
               particularly{' '}
               <TextHighlight textColor='text-blue-400'>React</TextHighlight> and{' '}
               <TextHighlight textColor='text-green-500'>Next.js</TextHighlight>.
