@@ -1,62 +1,56 @@
-import ModalPopup from "components/Modals/ModalPopup";
-import Row from "layouts/Row";
-import Stack from "layouts/Stack";
-import DayJS from "lib/dayjs";
-import { motion } from "framer-motion";
-import React, { FunctionComponent, useState } from "react";
+import Row from 'layouts/Row';
+import Stack from 'layouts/Stack';
+import DayJS from 'lib/dayjs';
+import Image from 'next/image';
+import React, { FunctionComponent } from 'react';
+import SectionHeader from './common/SectionHeader';
+import TextHighlight from './common/TextHighlight';
 
 export type ProjectsProps = {
   // No Props
 };
 
-const yearStartedWorking = DayJS("2017-01-01");
+const yearStartedWorking = DayJS('2017-01-01');
 const Projects: FunctionComponent<ProjectsProps> = () => {
-  const [selectedProject, setSelectedProject] = useState(null);
   const now = DayJS();
-  const yearsWorking = DayJS.duration(now.diff(yearStartedWorking)).years();
 
   return (
-    <>
-      <Stack className="items-center bg-transparent text-white py-24 gap-24">
-        <Stack className="gap-8 text-center  max-w-screen-lg px-12 mx-auto">
-          <h1 className="text-3xl font-bold tracking-wide uppercase">
-            Front-end Specialist
-          </h1>
-          <p className="text-gray-500 text-center">
-            I am a software engineer with {yearsWorking} years of experience. I
-            excel in creating web apps using JavaScript frameworks, mostly using
-            React.js and Vue.js. I started as a full-stack developer but now I
-            want to continue to specialize in front-end development because it
-            brings me joy and excitement. I have worked with different types of
-            system, from Streaming sites, to gambling, school management,
-            election site, ***n sites and others.
-          </p>
+    <Stack className='items-center bg-transparent text-white py-32 space-y-24'>
+      <div className='max-w-screen-lg mx-auto'>
+        <Stack className='space-y-12'>
+          <Stack className='space-y-8'>
+            <SectionHeader title='ABOUT' description='Software Engineer' />
+            <p className='text-slate-500 text-left text-2xl'>
+              Hi, I'm <TextHighlight>Paolo Vincent Julian</TextHighlight>, I
+              started my journey on <TextHighlight>2017</TextHighlight>. I excel
+              in creating responsive web-apps using JavaScript frameworks,
+              particularly{' '}
+              <TextHighlight textColor='text-blue-400'>React</TextHighlight> and{' '}
+              <TextHighlight textColor='text-green-500'>Next.js</TextHighlight>.
+              Although I was{' '}
+              <TextHighlight textColor='text-slate-400'>
+                {' '}
+                full-stack developer
+              </TextHighlight>
+              , I decided to focus on{' '}
+              <TextHighlight textColor='text-rose-400'>
+                front-end development {`<3`}
+              </TextHighlight>{' '}
+              since it is more enjoyable and more fun. I enjoy helping others
+              achieve their goals and is passionate in creating interesting
+              applications.
+            </p>
+          </Stack>
+          <button
+            className='px-8 py-4 transition-colors bg-rose-400/90 hover:bg-rose-400 active:scale-[0.97] w-fit
+            shadow-[0px_0px_6px_4px_rgba(232,121,249,0.1);]
+          '
+          >
+            <span className='font-extrabold text-xl'>HIRE ME</span>
+          </button>
         </Stack>
-        <div className="max-w-full overflow-x-auto">
-          <Row className="gap-8">
-            <motion.div
-              layoutId="test"
-              className="w-[500px] h-[350px] bg-white cursor-pointer"
-              onClick={() => setSelectedProject("test")}
-            ></motion.div>
-            <motion.div
-              layoutId="test2"
-              className="w-[500px] h-[350px] bg-white cursor-pointer"
-              onClick={() => setSelectedProject("test2")}
-            ></motion.div>
-            {/* <div className='w-[500px] h-[350px] bg-white'></div>
-          <div className='w-[500px] h-[350px] bg-white'></div> */}
-          </Row>
-        </div>
-      </Stack>
-      <ModalPopup
-        isOpen={!!selectedProject}
-        onClose={() => setSelectedProject(null)}
-        layoutId={selectedProject}
-      >
-        <h1>Modal</h1>
-      </ModalPopup>
-    </>
+      </div>
+    </Stack>
   );
 };
 

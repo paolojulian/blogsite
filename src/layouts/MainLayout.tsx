@@ -12,8 +12,8 @@ const MainLayout: FunctionComponent<MainLayoutProps> = ({ children }) => {
     <Stack className="bg-[#181a25] w-screen max-h-screen">
       <Row className="flex-1">
         <Menu />
-        <div className="pr-4 py-4 flex-1 h-screen">
-          <main className="bg-gray-50 w-full h-full rounded-[5rem] overflow-y-auto overflow-x-hidden">
+        <div className='flex-1 h-screen'>
+          <main className='bg-gray-50 w-full h-full overflow-y-auto'>
             {children}
           </main>
         </div>
