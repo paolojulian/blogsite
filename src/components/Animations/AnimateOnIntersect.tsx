@@ -1,8 +1,9 @@
-import React, { createContext, useContext, useEffect } from "react";
+import classNames from 'classnames';
+import React, { createContext, useContext, useEffect } from 'react';
 
 const defaultOptions = {
   root: null,
-  rootMargin: "0px",
+  rootMargin: '0px 0px -100px 0px',
   threshold: 1.0,
 };
 
@@ -43,7 +44,17 @@ const AnimateOnIntersect: React.FC<IAnimateOnIntersect> = ({
 
   return (
     <AnimateOnIntersectContext.Provider value={{ isInView }}>
-      <div ref={containerRef}>{children}</div>
+      <div
+        ref={containerRef}
+        className={classNames(
+          'transition duration-1000',
+          isInView
+            ? 'opacity-1 translate-x-0'
+            : 'transition opacity-0 -translate-x-96'
+        )}
+      >
+        {children}
+      </div>
     </AnimateOnIntersectContext.Provider>
   );
 };

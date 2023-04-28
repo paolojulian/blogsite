@@ -1,11 +1,12 @@
-import { Manrope } from '@next/font/google';
-import { AppProps } from 'next/app';
-import { useEffect } from 'react';
-import { getTheme } from '../lib/helpers';
-import '../styles/index.css';
-import '../styles/prism/prism-one-dark.css';
+import { Manrope } from "@next/font/google";
+import { AppProps } from "next/app";
+import ModalBlurProvider from "providers/ModalBlurProvider";
+import { useEffect } from "react";
+import { getTheme } from "../lib/helpers";
+import "../styles/index.css";
+import "../styles/prism/prism-one-dark.css";
 
-const Font = Manrope({ subsets: ['latin'] });
+const Font = Manrope({ subsets: ["latin"] });
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -13,10 +14,10 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     if (!theme) {
       theme = getTheme();
     }
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.remove("dark");
     }
   }, []);
 
@@ -27,7 +28,9 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           --font-family: ${Font.style.fontFamily};
         }
       `}</style>
-      <Component {...pageProps} />
+      <ModalBlurProvider>
+        <Component {...pageProps} />
+      </ModalBlurProvider>
     </>
   );
 }

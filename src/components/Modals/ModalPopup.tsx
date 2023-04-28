@@ -24,7 +24,8 @@ const ModalPopup: React.FC<IModalPopup> = ({
     <>
       <motion.div
         className={classNames(
-          "fixed inset-0 bg-black/30 transition",
+          "fixed inset-0 transition-opacity bg-black/25",
+          "backdrop-blur-sm",
           isOpen ? "opacity-1" : "opacity-0 pointer-events-none"
         )}
       ></motion.div>
