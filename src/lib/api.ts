@@ -1,11 +1,16 @@
 import fs from 'fs'
-import { join } from 'path'
 import matter from 'gray-matter'
+import { NextApiResponse } from 'next'
+import { join } from 'path'
 
 const postsDirectory = join(process.cwd(), '_posts')
 
 export function getPostSlugs() {
   return fs.readdirSync(postsDirectory)
+}
+
+export function methodNotAllowed(res: NextApiResponse) {
+  return res.status(405).json({ message: 'Method not allowed ' })
 }
 
 export function getPostBySlug(slug: string, fields: string[] = []) {

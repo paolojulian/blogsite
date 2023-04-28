@@ -6,6 +6,8 @@ import Row from 'layouts/Row';
 import Stack from 'layouts/Stack';
 import Image from 'next/image';
 import React, { FunctionComponent } from 'react';
+import useContactForm from '../hooks/useContactForm';
+import ContactForm from './Forms/ContactForm';
 
 export type ContactProps = {
   name: string;
@@ -16,7 +18,8 @@ export type ContactProps = {
 };
 
 const Contact: FunctionComponent<ContactProps> = () => {
-  const [value, setValue] = React.useState('');
+  const { handleSubmit } = useContactForm();
+
   return (
     <>
       <Stack className='items-center bg-white text-gray-900 -pt-32 pb-24 gap-24 relative'>
@@ -40,22 +43,7 @@ const Contact: FunctionComponent<ContactProps> = () => {
               possible
             </p>
           </Stack>
-          <Stack className='space-y-2 w-full max-w-md mx-auto px-8'>
-            <TextInput label='Name' name='Name' value='' />
-            <TextInput label='Email' name='Email' value='' />
-            <TextInput label='Message' name='Message' value='' />
-            <TextInputGoogle
-              theme='white'
-              label='Message'
-              name='Message'
-              value={value}
-              onChange={(e) => setValue(e.target.value)}
-              placeholder='Lorem ipsum'
-            />
-            <AppButton>
-              <span className='font-bold uppercase'>Submit</span>
-            </AppButton>
-          </Stack>
+          <ContactForm onSubmit={handleSubmit} />
           <Stack className='max-w-screen-md w-full py-4 px-8 mx-auto space-y-8 items-center'>
             <div className='w-full border border-t-gray-100' />
             <Row className='space-x-4 justify-center'>
