@@ -1,3 +1,4 @@
+import AppButton from 'components/Buttons/AppButton';
 import Row from 'layouts/Row';
 import Stack from 'layouts/Stack';
 import DayJS from 'lib/dayjs';
@@ -43,13 +44,10 @@ const Projects: FunctionComponent<ProjectsProps> = () => {
               applications.
             </p>
           </Stack>
-          <button
-            className='px-8 py-4 transition-colors bg-rose-400/90 hover:bg-rose-400 active:scale-[0.97] w-fit
-            shadow-[0px_0px_6px_4px_rgba(232,121,249,0.1);]
-          '
-          >
+
+          <AppButton block={false}>
             <span className='font-extrabold text-xl'>HIRE ME</span>
-          </button>
+          </AppButton>
         </Stack>
       </div>
     </Stack>

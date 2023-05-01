@@ -1,4 +1,5 @@
 import AppButton from 'components/Buttons/AppButton';
+import TextAreaInput from 'components/Forms/TextAreaInput';
 import TextInput from 'components/Forms/TextInput';
 import { Formik } from 'formik';
 import Stack from 'layouts/Stack';
@@ -45,18 +46,24 @@ const ContactForm: FunctionComponent<ContactFormProps> = ({
               name='Name'
               value={values.name}
               onChange={(e) => setFieldValue('name', e.target.value)}
+              theme='white'
+              openOnDefault
             />
             <TextInput
               label='Email'
               name='Email'
               value={values.email}
               onChange={(e) => setFieldValue('email', e.target.value)}
+              theme='white'
+              openOnDefault
             />
-            <TextInput
+            <TextAreaInput
               label='Message'
               name='Message'
               value={values.message}
               onChange={(e) => setFieldValue('message', e.target.value)}
+              theme='white'
+              rows={8}
             />
             <AppButton type='submit' isLoading={isSubmitting}>
               <span className='font-bold uppercase'>Submit</span>
