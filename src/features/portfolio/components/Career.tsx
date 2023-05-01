@@ -8,29 +8,9 @@ export type CareerProps = {
   // No Props
 };
 
-const data = [
-  {
-    date: 'August 2017',
-    title: 'Utalk',
-    description:
-      'Learned Vue.js, also was appointed to lead the team on the vue.js project for a School Management System',
-  },
-  {
-    date: 'September 2019',
-    title: 'YNS Philippines Inc.',
-    description:
-      'Learned many systems like Live streaming service, gambling sites and Website management system. Mainly used Laravel, CakePHP, VueJS and ReactJS',
-  },
-  {
-    date: 'September 2021',
-    title: 'Yondu',
-    description:
-      'Gambling site, election app, seat/room reservation app, hr management tool. Mainly used Nuxt.js and Next.js',
-  },
-];
 const Career: FunctionComponent<CareerProps> = () => {
   return (
-    <div className='max-w-screen-lg mx-auto my-32'>
+    <div className='max-w-screen-lg mx-auto my-32 pb-32'>
       <Stack className='bg-transparent text-white py-32 space-y-24'>
         <SectionHeader
           title='CAREER'
