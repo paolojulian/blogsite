@@ -1,6 +1,6 @@
 import { Outfit } from '@next/font/google';
 import { AppProps } from 'next/app';
-import ModalBlurProvider from 'providers/ModalBlurProvider';
+import Providers from 'providers';
 import { useEffect } from 'react';
 import { getTheme } from '../lib/helpers';
 import '../styles/index.css';
@@ -14,10 +14,10 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     if (!theme) {
       theme = getTheme();
     }
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
     } else {
-      document.documentElement.classList.remove("dark");
+      document.documentElement.classList.remove('dark');
     }
   }, []);
 
@@ -28,9 +28,9 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           --font-family: ${Font.style.fontFamily};
         }
       `}</style>
-      <ModalBlurProvider>
+      <Providers>
         <Component {...pageProps} />
-      </ModalBlurProvider>
+      </Providers>
     </>
   );
 }

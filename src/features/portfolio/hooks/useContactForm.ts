@@ -1,17 +1,18 @@
+import { useMutation } from "@tanstack/react-query";
 import apiClient from "lib/axios";
 import { IContactForm } from "../components/Forms/ContactForm";
 
 const useContactForm = () => {
-  const handleSubmit = async (form: IContactForm) => {
-    const response = await apiClient.post('/api/email/contact-me', form);
-    if (!response.ok) {
-      // TODO: Handle ror
-      throw response;
+  const { mutateAsync: handleSubmit, isLoading } = useMutation({
+    mutationFn: async (form: IContactForm) => {
+      const response = await apiClient.post('/api/email/contact-me', form);
+      if (!response.ok) {
+        throw response;
+      }
     }
-    console.log({ response });
-  }
+  })
 
-  return { handleSubmit }
+  return { handleSubmit, isLoading }
 }
 
 export default useContactForm;

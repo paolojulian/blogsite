@@ -1,7 +1,4 @@
 import classNames from 'classnames';
-import AppButton from 'components/Buttons/AppButton';
-import TextInput from 'components/Forms/TextInput';
-import TextInputGoogle from 'components/Forms/TextInputGoogle';
 import Row from 'layouts/Row';
 import Stack from 'layouts/Stack';
 import Image from 'next/image';
@@ -18,7 +15,7 @@ export type ContactProps = {
 };
 
 const Contact: FunctionComponent<ContactProps> = () => {
-  const { handleSubmit } = useContactForm();
+  const { handleSubmit, isLoading } = useContactForm();
 
   return (
     <>
@@ -43,7 +40,7 @@ const Contact: FunctionComponent<ContactProps> = () => {
               possible
             </p>
           </Stack>
-          <ContactForm onSubmit={handleSubmit} />
+          <ContactForm onSubmit={handleSubmit} isSubmitting={isLoading} />
           <Stack className='max-w-screen-md w-full py-4 px-8 mx-auto space-y-8 items-center'>
             <div className='w-full border border-t-gray-100' />
             <Row className='space-x-4 justify-center'>

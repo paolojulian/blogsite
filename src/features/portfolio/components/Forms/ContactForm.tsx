@@ -6,7 +6,8 @@ import React, { FunctionComponent } from 'react';
 import * as Yup from 'yup';
 
 export type ContactFormProps = {
-  onSubmit: (form: IContactForm) => void;
+  onSubmit: (form: IContactForm) => Promise<void>;
+  isSubmitting?: boolean;
 };
 
 export const contactFormSchema = Yup.object({
@@ -21,12 +22,17 @@ const initialValues: IContactForm = {
   message: '',
 };
 
-const ContactForm: FunctionComponent<ContactFormProps> = ({ onSubmit }) => {
+const ContactForm: FunctionComponent<ContactFormProps> = ({
+  onSubmit,
+  isSubmitting = false,
+}) => {
   return (
     <Formik
-      onSubmit={(form) => {
-        console.log({ form });
-        onSubmit(form);
+      onSubmit={(form, actions) => {
+        onSubmit(form).then(() => {
+          actions.setSubmitting(false);
+          actions.resetForm();
+        });
       }}
       initialValues={initialValues}
       validationSchema={contactFormSchema}
@@ -52,7 +58,7 @@ const ContactForm: FunctionComponent<ContactFormProps> = ({ onSubmit }) => {
               value={values.message}
               onChange={(e) => setFieldValue('message', e.target.value)}
             />
-            <AppButton type='submit'>
+            <AppButton type='submit' isLoading={isSubmitting}>
               <span className='font-bold uppercase'>Submit</span>
             </AppButton>
           </Stack>

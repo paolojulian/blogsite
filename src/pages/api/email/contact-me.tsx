@@ -19,14 +19,23 @@ const handler: NextApiHandler = (req, res) => {
     text: req.body.message,
     html: `
     <div>
-      <p>
+      <p style="font-weight:base; color: #475569">
         ${req.body.message}
       </p>
-      <div> 
-        <h2 style="font-weight: base; font-size: 0.8rem;">${req.body.name}</h2>
-        <h4>${req.body.email}</h4>
+      <div class="stack"> 
+        <h2 style="font-weight: medium; font-size: 1rem;">${req.body.name}</h2>
+        <h4 style="font-weight: base; font-size: 0.8rem;">${req.body.email}</h4>
       </div>
     </div>
+    <style>
+    .stack {
+      display: flex;
+      flex-direction: column;
+    }
+    .stack > * + * {
+      margin-top: 0;
+    }
+    </style>
     `,
   };
 
