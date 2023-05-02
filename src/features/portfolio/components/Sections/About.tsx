@@ -1,20 +1,14 @@
 import AppButton from 'components/Buttons/AppButton';
-import Row from 'layouts/Row';
 import Stack from 'layouts/Stack';
-import DayJS from 'lib/dayjs';
-import Image from 'next/image';
 import React, { FunctionComponent } from 'react';
-import SectionHeader from './common/SectionHeader';
-import TextHighlight from './common/TextHighlight';
+import SectionHeader from '../common/SectionHeader';
+import TextHighlight from '../common/TextHighlight';
 
-export type ProjectsProps = {
+export type AboutProps = {
   // No Props
 };
 
-const yearStartedWorking = DayJS('2017-01-01');
-const Projects: FunctionComponent<ProjectsProps> = () => {
-  const now = DayJS();
-
+const About: FunctionComponent<AboutProps> = () => {
   return (
     <Stack className='items-center bg-transparent text-white py-32 space-y-24'>
       <div className='max-w-screen-lg mx-auto'>
@@ -54,4 +48,4 @@ const Projects: FunctionComponent<ProjectsProps> = () => {
   );
 };
 
-export default Projects;
+export default About;

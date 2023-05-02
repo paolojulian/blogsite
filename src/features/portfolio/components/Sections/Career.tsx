@@ -1,8 +1,8 @@
 import Stack from 'layouts/Stack';
 import React, { FunctionComponent } from 'react';
-import CareerCard from './Career/CareerCard';
-import SectionHeader from './common/SectionHeader';
-import TextHighlight from './common/TextHighlight';
+import CareerCard from '../Career/CareerCard';
+import SectionHeader from '../common/SectionHeader';
+import TextHighlight from '../common/TextHighlight';
 
 export type CareerProps = {
   // No Props

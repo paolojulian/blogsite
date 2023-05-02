@@ -3,9 +3,9 @@ import Row from 'layouts/Row';
 import Stack from 'layouts/Stack';
 import Image from 'next/image';
 import React, { FunctionComponent } from 'react';
-import useContactForm from '../hooks/useContactForm';
-import ContactForm from './Forms/ContactForm';
-import SectionHeader from './common/SectionHeader';
+import useContactForm from '../../hooks/useContactForm';
+import ContactForm from '../Forms/ContactForm';
+import SectionHeader from '../common/SectionHeader';
 
 export type ContactProps = {
   name: string;
