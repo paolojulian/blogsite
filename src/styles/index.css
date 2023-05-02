@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 html {
-  font-family: var(--font-family), Manrope, 'sans-serif';
+  font-family: 'Manrope', 'sans-serif';
   @apply dark:text-white;
   overflow-y: hidden;
 }
