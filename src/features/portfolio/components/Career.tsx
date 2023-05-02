@@ -17,7 +17,7 @@ const Career: FunctionComponent<CareerProps> = () => {
           description={"A Software Engineer's tale"}
         />
 
-        <Stack className='space-y-24'>
+        <Stack>
           <CareerCard
             HeaderComponent={
               <CareerCard.Header

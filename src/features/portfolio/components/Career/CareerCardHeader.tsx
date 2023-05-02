@@ -15,9 +15,9 @@ const CareerCardHeader: FunctionComponent<CareerCardHeaderProps> = ({
 }) => {
   return (
     <Stack>
-      <h3 className="font-medium text-slate-500 text-[16px]">{year}</h3>
+      <h3 className='font-medium text-slate-500 text-[16px]'>{year}</h3>
       <Row>
-        <h2 className="font-semibold text-2xl">{title}</h2>
+        <h2 className='font-semibold text-slate-200 text-2xl'>{title}</h2>
         <div>{flag}</div>
       </Row>
     </Stack>

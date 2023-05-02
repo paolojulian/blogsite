@@ -2,17 +2,16 @@ import classNames from 'classnames';
 import React, { FunctionComponent, HtmlHTMLAttributes, useMemo } from 'react';
 
 export type StackProps = {
-  gap?: number;
   children?: React.ReactNode;
 } & HtmlHTMLAttributes<HTMLDivElement>;
 
-const Stack: FunctionComponent<StackProps> = ({ children, gap = 0, className = '', ...props }) => {
-  const gapStyle = useMemo(() => {
-    return `space-y-${gap}`;
-  }, [gap]);
-
+const Stack: FunctionComponent<StackProps> = ({
+  children,
+  className = '',
+  ...props
+}) => {
   return (
-    <div className={classNames('flex flex-col', gapStyle, className)} {...props}>
+    <div className={classNames('flex flex-col', className)} {...props}>
       {children}
     </div>
   );
