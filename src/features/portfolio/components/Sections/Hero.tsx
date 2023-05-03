@@ -13,7 +13,8 @@ const Hero: FunctionComponent<HeroProps> = (props) => {
       <Image
         width={3012}
         height={1798}
-        src='/assets/portfolio/Background.png'
+        src='/assets/portfolio/Background.jpg'
+        quality={90}
         alt='Background'
         className='border border-[#181a25]'
         style={{

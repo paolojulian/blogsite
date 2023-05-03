@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import CloseIcon from 'components/atoms/CloseIcon';
-import EyeIcon from 'components/Icons/Icons/EyeIcon';
-import EyeSlashIcon from 'components/Icons/Icons/EyeSlashIcon';
+import EyeIcon from 'components/Icons/EyeIcon';
+import EyeSlashIcon from 'components/Icons/EyeSlashIcon';
 import Row from 'layouts/Row';
 import Stack from 'layouts/Stack';
 import React, {

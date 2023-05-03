@@ -1,9 +1,9 @@
-import Career from 'features/portfolio/components/Sections/Career';
 import Contact from 'features/portfolio/components/Sections/Contact';
 import Hero from 'features/portfolio/components/Sections/Hero';
-import Projects from 'features/portfolio/components/Sections/Projects';
-import MainLayout from 'layouts/MainLayout';
 import React, { FunctionComponent } from 'react';
+import Career from './Career';
+import Projects from './Projects';
+import About from './Sections/About';
 
 export type PortfolioPageProps = {
   // No Props
@@ -11,20 +11,19 @@ export type PortfolioPageProps = {
 
 const PortfolioPage: FunctionComponent<PortfolioPageProps> = () => {
   return (
-    <MainLayout>
-      <div className='bg-[#181a25] w-full'>
-        <Hero />
-        <Projects />
-        <Career />
-        <Contact
-          name='Paolo Vincent M. Julian'
-          course='Software Engineer'
-          email='paolojulian.personal@gmail.com'
-          address='#100 Upper Dagsian, Baguio City'
-          mobileNo='+639279488654'
-        />
-      </div>
-    </MainLayout>
+    <div className='bg-bg w-full'>
+      <Hero />
+      <About />
+      <Projects />
+      <Career />
+      <Contact
+        name='Paolo Vincent M. Julian'
+        course='Software Engineer'
+        email='paolojulian.personal@gmail.com'
+        address='#100 Upper Dagsian, Baguio City'
+        mobileNo='+639279488654'
+      />
+    </div>
   );
 };
 

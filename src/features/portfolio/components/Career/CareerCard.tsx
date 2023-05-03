@@ -6,6 +6,7 @@ import CareerCardHeader from './CareerCardHeader';
 export type CareerCardProps = {
   DescriptionComponent: React.ReactNode;
   HeaderComponent: React.ReactNode;
+  TechsComponent: React.ReactNode;
   apps: string[];
 };
 
@@ -16,6 +17,7 @@ interface SubComponents {
 const CareerCard: FunctionComponent<CareerCardProps> & SubComponents = ({
   DescriptionComponent,
   HeaderComponent,
+  TechsComponent,
   apps,
 }) => {
   return (
@@ -46,7 +48,7 @@ const CareerCard: FunctionComponent<CareerCardProps> & SubComponents = ({
           </Row>
         </Stack>
       </div>
-      <div className='flex-1'></div>
+      <div className='flex-1'>{TechsComponent}</div>
     </Row>
   );
 };
