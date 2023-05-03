@@ -28,7 +28,7 @@ const TextAreaInput: FunctionComponent<TextAreaInputProps> = ({
     <Stack className='space-y-1'>
       <div
         className={classNames(
-          'rounded-lg transition-colors relative group',
+          'transition-colors relative group',
           !!error ? 'bg-red-100 hover:bg-red-200/80' : colorTheme[theme],
           !!error ? 'ring-2 ring-red-500' : ''
         )}
@@ -68,7 +68,7 @@ const TextAreaInput: FunctionComponent<TextAreaInputProps> = ({
           <textarea
             className={classNames(
               'transition-opacity',
-              'rounded-lg bg-transparent pt-6 pb-3 px-3',
+              'bg-transparent pt-6 pb-3 px-3',
               'font-medium text-gray-800',
               'resize-none',
               willShow ? 'opacity-1' : 'opacity-0'

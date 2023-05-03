@@ -4,8 +4,8 @@ import Stack from 'layouts/Stack';
 import Image from 'next/image';
 import React, { FunctionComponent } from 'react';
 import useContactForm from '../../hooks/useContactForm';
-import ContactForm from '../Forms/ContactForm';
 import SectionHeader from '../common/SectionHeader';
+import ContactForm from './ContactForm';
 
 export type ContactProps = {
   name: string;
@@ -20,22 +20,22 @@ const Contact: FunctionComponent<ContactProps> = () => {
 
   return (
     <>
-      <Stack className='items-center bg-slate-100 text-gray-900 -pt-32 pb-24 gap-24 relative'>
+      <Stack className='items-center bg-white text-gray-900 -pt-32 pb-24 gap-24 relative'>
         {/** Separator */}
         <div
           className={classNames(
             'absolute top-0 inset-x-0',
             'w-0 h-0',
-            'border-r-[100vw] border-r-transparent border-b-[13.9vw] border-b-slate-100',
+            'border-r-[100vw] border-r-transparent border-b-[13.9vw] border-b-white',
             'mt-[-13.8vw]'
           )}
         ></div>
         {/** Content */}
         <Stack className='z-10 space-y-16 w-full'>
-          <Stack className='space-y-2 text-center  max-w-screen-lg px-12 mx-auto'>
+          <Stack className='space-y-2 max-w-screen-lg mx-auto w-full px-8'>
             <SectionHeader
               title='CONTACT'
-              description='Have a question or want to work together?'
+              description='I would love to hear from you.'
               theme='light'
             ></SectionHeader>
           </Stack>

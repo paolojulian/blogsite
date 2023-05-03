@@ -1,7 +1,7 @@
-import Contact from 'features/portfolio/components/Sections/Contact';
 import Hero from 'features/portfolio/components/Sections/Hero';
 import React, { FunctionComponent } from 'react';
 import Career from './Career';
+import Contact from './Contact';
 import Projects from './Projects';
 import About from './Sections/About';
 

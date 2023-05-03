@@ -11,6 +11,13 @@ import React, {
   useRef,
 } from 'react';
 
+type RoundedCorner =
+  | 'full'
+  | 'bottom'
+  | 'top'
+  | 'none'
+  | 'top-right'
+  | 'top-left';
 type TextInputTheme = 'default' | 'white';
 
 export type TextInputProps = {
@@ -21,6 +28,7 @@ export type TextInputProps = {
   clearable?: boolean;
   error?: string | boolean;
   openOnDefault?: boolean;
+  rounded?: RoundedCorner;
   theme?: TextInputTheme;
   onClear?: () => void;
 } & InputHTMLAttributes<HTMLInputElement>;
@@ -28,6 +36,15 @@ export type TextInputProps = {
 const colorTheme: Record<TextInputTheme, string> = {
   default: 'bg-slate-100 hover:bg-slate-200/80',
   white: 'bg-white hover:bg-slate-200',
+};
+
+const roundedMap: Record<RoundedCorner, string> = {
+  full: 'rounded-3xl',
+  bottom: 'rounded-b-3xl',
+  top: 'rounded-t-3xl',
+  'top-left': 'rounded-tl-3xl',
+  'top-right': 'rounded-tr-3xl',
+  none: '',
 };
 
 const TextInput: FunctionComponent<TextInputProps> = ({
@@ -39,6 +56,7 @@ const TextInput: FunctionComponent<TextInputProps> = ({
   clearable = false,
   error = false,
   openOnDefault = false,
+  rounded = 'none',
   theme = 'default',
   onClear = () => {
     /** Placeholder */
@@ -68,12 +86,13 @@ const TextInput: FunctionComponent<TextInputProps> = ({
   const handleTogglePasswordClick = () => setShowPassword((prev) => !prev);
 
   return (
-    <Stack className='space-y-1'>
+    <Stack className='space-y-1 w-full'>
       <div
         className={classNames(
-          'rounded-lg transition-colors relative group',
+          'transition-colors relative group',
           !!error ? 'bg-red-100 hover:bg-red-200/80' : colorTheme[theme],
-          !!error ? 'ring-2 ring-red-500' : ''
+          !!error ? 'ring-2 ring-red-500' : '',
+          roundedMap[rounded]
         )}
       >
         <Stack className='absolute inset-0 h-full justify-center px-5 z-0 pointer-events-none text-left w-fit'>
@@ -87,8 +106,8 @@ const TextInput: FunctionComponent<TextInputProps> = ({
             {LabelPrependComponent}
             <label
               className={classNames(
-                'font-medium tracking-wide',
-                'text-gray-500'
+                'font-extrabold tracking-wide',
+                'text-gray-500 text-sm'
               )}
               htmlFor={name}
             >
@@ -100,9 +119,9 @@ const TextInput: FunctionComponent<TextInputProps> = ({
           <label
             className={classNames(
               'transition-transform',
-              'absolute top-2 left-3',
+              'absolute top-2 left-4',
               willShow ? 'opacity-1 scale-100' : 'opacity-0 scale-0',
-              'uppercase font-bold text-xs tracking-wide',
+              'uppercase font-extrabold text-xs',
               'text-primary-800'
             )}
             htmlFor={name}
@@ -153,9 +172,10 @@ const TextInput: FunctionComponent<TextInputProps> = ({
             ref={inputRef}
             className={classNames(
               'transition-opacity',
-              'rounded-lg bg-transparent pt-6 pb-3 px-3',
-              'font-medium text-gray-800',
-              willShow ? 'opacity-1' : 'opacity-0'
+              'bg-transparent pt-6 pb-3 px-4',
+              'font-bold text-gray-800',
+              willShow ? 'opacity-1' : 'opacity-0',
+              roundedMap[rounded]
             )}
             {...props}
             name={name}

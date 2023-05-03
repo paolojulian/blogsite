@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 import apiClient from "lib/axios";
-import { IContactForm } from "../components/Forms/ContactForm";
+import { IContactForm } from "../components/Contact/ContactForm";
 
 const useContactForm = () => {
   const { mutateAsync: handleSubmit, isLoading } = useMutation({

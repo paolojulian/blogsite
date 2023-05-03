@@ -8,9 +8,11 @@ export type AppButtonProps = {
   size?: Size;
   block?: boolean;
   isLoading?: boolean;
+  rounded?: RoundedCorner;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
-type Theme = 'primary' | 'primaryOutline' | 'black';
+type RoundedCorner = 'full' | 'bottom' | 'top' | 'none';
+type Theme = 'primary' | 'primaryOutline' | 'red' | 'black';
 type Size = 'sm' | 'base' | 'lg';
 
 const backgroundMap: Record<Theme, string> = {
@@ -19,12 +21,21 @@ const backgroundMap: Record<Theme, string> = {
     'border border-primary-500 hover:bg-primary-500 active:bg-primary-600 active:border-primary-600',
     'text-primary-500 hover:text-white'
   ),
+  red: 'bg-red-400 hover:bg-red-500 text-white',
   black: 'bg-black hover:bg-gray-900 text-white font-bold',
 };
 const disabledMap: Record<Theme, string> = {
   primary: 'bg-gray-200 text-gray-400',
   primaryOutline: classNames('border border-gray-300 text-gray-400'),
+  red: 'bg-red-200',
   black: 'bg-black hover:bg-gray-900 text-white font-bold',
+};
+
+const roundedMap: Record<RoundedCorner, string> = {
+  full: 'rounded-3xl',
+  bottom: 'rounded-b-3xl',
+  top: 'rounded-t-3xl',
+  none: '',
 };
 
 const sizeMap: Record<Size, string> = {
@@ -34,11 +45,12 @@ const sizeMap: Record<Size, string> = {
 };
 
 const AppButton: FunctionComponent<AppButtonProps> = ({
-  theme = 'primary',
-  size = 'base',
   block = true,
-  isLoading = false,
   disabled = false,
+  isLoading = false,
+  rounded = 'full',
+  size = 'base',
+  theme = 'primary',
   children,
   ...props
 }) => {
@@ -54,9 +66,10 @@ const AppButton: FunctionComponent<AppButtonProps> = ({
     <button
       {...props}
       className={classNames(
-        'px-12 py-2 rounded-full text-center',
+        'px-12 py-2 text-center',
         'transition-colors scale-100',
         sizeMap[size],
+        roundedMap[rounded],
         !disabled && 'active:scale-[0.99]',
         disabled ? disabledMap[theme] : backgroundMap[theme],
         block ? 'w-full' : 'w-fit'
