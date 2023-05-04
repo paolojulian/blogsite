@@ -42,31 +42,8 @@ const Contact: FunctionComponent<ContactProps> = () => {
           <ContactForm onSubmit={handleSubmit} isSubmitting={isLoading} />
           <Stack className='max-w-screen-md w-full py-4 px-8 mx-auto space-y-8 items-center'>
             <div className='w-full border border-t-gray-100' />
-            <Row className='space-x-4 justify-center'>
-              <div className='rounded-full h-12 w-12 relative'>
-                <Image
-                  src={'/assets/portfolio/logo-facebook.svg'}
-                  alt='Facebook'
-                  fill
-                />
-              </div>
-              <div className='rounded-full h-12 w-12 relative'>
-                <Image
-                  src={'/assets/portfolio/logo-github.svg'}
-                  alt='Facebook'
-                  fill
-                />
-              </div>
-              <div className='rounded-full h-12 w-12 relative'>
-                <Image
-                  src={'/assets/portfolio/logo-linkedin.svg'}
-                  alt='Facebook'
-                  fill
-                />
-              </div>
-            </Row>
-            <h4 className='text-primary-600'>
-              Paolo Vincent Julian <span className=''>© 2017</span>
+            <h4 className='text-slate-900 text-base font-medium'>
+              Copyright © 2017-2023 Paolo Vincent Julian. All rights reserved.
             </h4>
           </Stack>
         </Stack>
