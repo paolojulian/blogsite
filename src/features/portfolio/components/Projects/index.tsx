@@ -1,3 +1,4 @@
+import DraggableHorizontalScroll from 'components/UI/DraggableHorizontalScroll';
 import Row from 'layouts/Row';
 import Stack from 'layouts/Stack';
 import React, { FunctionComponent } from 'react';
@@ -20,15 +21,33 @@ const Projects: FunctionComponent<ProjectsProps> = () => {
             />
           </Stack>
         </div>
-        <div className='overflow-x-auto px-4 md:px-12 lg:px-20 xl:px-28 hidden-scrollbar'>
-          <Row className='space-x-6 w-fit'>
-            <ProjectCard />
-            <ProjectCard />
-            <ProjectCard />
-            <ProjectCard />
-            <ProjectCard />
-          </Row>
-        </div>
+        <DraggableHorizontalScroll>
+          <div className='px-4 md:px-12 lg:px-20 xl:px-28'>
+            <Row className='space-x-6 w-fit text-white px-4 md:px-12'>
+              <ProjectCard
+                title='Election App'
+                description='NextJS, TailwindCSS'
+              />
+              <ProjectCard
+                title='Dynamic Landing Page & Blogsite'
+                description='NextJS, TailwindCSS, Contentful'
+              />
+              <ProjectCard
+                title='Reservation App'
+                description='NextJS, TailwindCSS, fabricJS'
+              />
+              <ProjectCard
+                title='Web Business Management App'
+                description='Laravel, VueJS, Stripe'
+              />
+              <ProjectCard
+                title='Live Streaming App'
+                description='ReactJS, Laravel, Stripe'
+              />
+              <ProjectCard title='Adult Site' description='CakePHP, Stripe' />
+            </Row>
+          </div>
+        </DraggableHorizontalScroll>
       </div>
     </>
   );
