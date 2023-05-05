@@ -9,20 +9,22 @@ export type HeroProps = {
 
 const Hero: FunctionComponent<HeroProps> = (props) => {
   return (
-    <div className='w-full h-full overflow-hidden relative bg-[#181a25]'>
-      <Image
-        width={3012}
-        height={1798}
-        src='/assets/portfolio/Background.jpg'
-        quality={90}
-        alt='Background'
-        className='border border-[#181a25]'
-        style={{
-          objectFit: 'contain',
-        }}
-      />
+    <>
+      <div className='w-full h-full overflow-hidden relative bg-[#181a25]'>
+        <Image
+          width={3012}
+          height={1798}
+          src='/assets/portfolio/Background.jpg'
+          quality={90}
+          alt='Background'
+          className='border border-[#181a25]'
+          style={{
+            objectFit: 'contain',
+          }}
+        />
+      </div>
       {/* Navbar */}
-      <Stack className='items-center justify-center sticky top-0 inset-x-0'>
+      <Stack className='items-center justify-center sticky top-0 inset-x-0 py-4 bg-bg z-40'>
         <div className='mx-auto max-w-screen-lg w-full'>
           <Row className='justify-between items-center w-full'>
             <h1 className='text-white font-extrabold text-2xl'>{`<PaoloJulian />`}</h1>
@@ -40,7 +42,7 @@ const Hero: FunctionComponent<HeroProps> = (props) => {
           </Row>
         </div>
       </Stack>
-    </div>
+    </>
   );
 };
 
