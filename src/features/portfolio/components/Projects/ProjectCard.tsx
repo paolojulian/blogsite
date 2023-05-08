@@ -24,11 +24,11 @@ const ProjectCard: FunctionComponent<ProjectCardProps> = ({
       )}
     >
       {/* Contents */}
-      <div className='w-full h-full overflow-x-auto hidden-scrollbar p-[25px]'>
+      <div className='w-full h-full pointer-events-none overflow-x-auto hidden-scrollbar p-[25px]'>
         <Row className='space-x-4 w-fit h-full flex-nowrap'>{children}</Row>
       </div>
       {/* Overlay */}
-      <div className='absolute inset-0 w-full h-full bg-gradient-to-t from-bg  to-transparent pointer-events-none'>
+      <div className='absolute inset-0 w-full h-full bg-gradient-to-t from-black  to-transparent pointer-events-none'>
         <Stack className='justify-end h-full p-4'>
           <h3 className='font-bold text-base'>{title}</h3>
           <p className='font-base text-sm text-slate-400'>{description}</p>

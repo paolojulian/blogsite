@@ -26,7 +26,7 @@ const Projects: FunctionComponent<ProjectsProps> = () => {
         <DraggableHorizontalScroll>
           <div className='px-4 md:px-12 lg:px-20 xl:px-28'>
             <Row className='space-x-6 w-fit text-white px-4 md:px-12'>
-              {/* GoElect */}
+              {/* Election App */}
               <ProjectCard
                 title='Election App'
                 description='NextJS, TailwindCSS'
@@ -79,7 +79,7 @@ const Projects: FunctionComponent<ProjectsProps> = () => {
                   />
                 </>
               </ProjectCard>
-              {/* PerformanceDepot */}
+              {/* Headless CMS Landing Page */}
               <ProjectCard
                 title='Dynamic Landing Page & Blogsite'
                 description='NextJS, TailwindCSS, Contentful'
@@ -132,8 +132,7 @@ const Projects: FunctionComponent<ProjectsProps> = () => {
                   />
                 </>
               </ProjectCard>
-
-              {/* GoReserve */}
+              {/* Reservation App */}
               <ProjectCard
                 title='Reservation App'
                 description='NextJS, TailwindCSS, fabricJS'
@@ -191,8 +190,7 @@ const Projects: FunctionComponent<ProjectsProps> = () => {
                   />
                 </>
               </ProjectCard>
-
-              {/* Leapy */}
+              {/* Web Business Management */}
               <ProjectCard
                 title='Web Business Management App'
                 description='Laravel, VueJS, Stripe'
@@ -214,11 +212,85 @@ const Projects: FunctionComponent<ProjectsProps> = () => {
                   />
                 </>
               </ProjectCard>
+
+              {/* Live Streaming App */}
               <ProjectCard
                 title='Live Streaming App'
                 description='ReactJS, Laravel, Stripe'
-              ></ProjectCard>
-              <ProjectCard title='Adult Site' description='CakePHP, Stripe' />
+              >
+                <>
+                  <ProjectItem
+                    type='web'
+                    width='w-[369px]'
+                    ImageComponent={
+                      <Image
+                        src={
+                          '/assets/portfolio/projects/idols_live_streaming/web.jpg'
+                        }
+                        alt={'idols_live_streaming_site'}
+                        width={369}
+                        height={300}
+                      />
+                    }
+                  />
+                  <ProjectItem
+                    type='web'
+                    width='w-[369px]'
+                    ImageComponent={
+                      <Image
+                        src={
+                          '/assets/portfolio/projects/idols_live_streaming/web.jpg'
+                        }
+                        alt={'idols_live_streaming_site'}
+                        width={369}
+                        height={300}
+                      />
+                    }
+                  />
+                </>
+              </ProjectCard>
+
+              {/* Adult Site */}
+              <ProjectCard title='Adult Site' description='CakePHP, StripeAPI'>
+                <>
+                  <ProjectItem
+                    type='web'
+                    width='w-[495px]'
+                    ImageComponent={
+                      <Image
+                        src={'/assets/portfolio/projects/adult_site/web.jpg'}
+                        alt={'adult_site'}
+                        width={495}
+                        height={300}
+                      />
+                    }
+                  />
+                  <ProjectItem
+                    type='mobile'
+                    width='w-[138px]'
+                    ImageComponent={
+                      <Image
+                        src={'/assets/portfolio/projects/adult_site/mobile.jpg'}
+                        alt={'adult_site'}
+                        width={138}
+                        height={300}
+                      />
+                    }
+                  />
+                  <ProjectItem
+                    type='web'
+                    width='w-[459px]'
+                    ImageComponent={
+                      <Image
+                        src={'/assets/portfolio/projects/adult_site/web2.jpg'}
+                        alt={'adult_site'}
+                        width={459}
+                        height={300}
+                      />
+                    }
+                  />
+                </>
+              </ProjectCard>
             </Row>
           </div>
         </DraggableHorizontalScroll>
