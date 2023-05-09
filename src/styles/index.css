@@ -26,19 +26,19 @@ html {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #fafaf9;
+  background: #181a25;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  border: 2px solid #fafaf9;
+  border: 2px solid #181a25;
   border-radius: 999px;
-  background: #888;
+  background: #d1d5db;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #f3f4f6;
 }
 
 .writing-vertical {

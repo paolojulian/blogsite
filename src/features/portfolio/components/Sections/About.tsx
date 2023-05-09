@@ -30,7 +30,11 @@ const About: FunctionComponent<AboutProps> = () => {
             <Stack className='space-y-8'>
               <SectionHeader
                 title='PAOLO VINCENT JULIAN'
-                description={`I am a Software Engineer`}
+                description={
+                  <Row>
+                    I am a<span className="text-red-500">&nbsp;Software Engineer</span>
+                  </Row>
+                }
               />
               <p className='text-slate-500 text-left text-2xl'>
                 I started my journey on <TextHighlight>2017</TextHighlight>. I

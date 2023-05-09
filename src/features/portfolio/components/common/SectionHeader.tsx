@@ -6,7 +6,7 @@ type SectionHeaderThemes = 'light' | 'dark';
 
 export type SectionHeaderProps = {
   title: string;
-  description: string;
+  description: string | React.ReactNode;
   theme?: SectionHeaderThemes;
 };
 
