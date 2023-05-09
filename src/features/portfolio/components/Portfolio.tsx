@@ -1,9 +1,9 @@
 import Hero from 'features/portfolio/components/Sections/Hero';
 import React, { FunctionComponent } from 'react';
+import About from './About';
 import Career from './Career';
 import Contact from './Contact';
 import Projects from './Projects';
-import About from './Sections/About';
 
 export type PortfolioPageProps = {
   // No Props
