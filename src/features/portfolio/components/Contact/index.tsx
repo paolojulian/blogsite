@@ -6,6 +6,7 @@ import React, { FunctionComponent } from 'react';
 import useContactForm from '../../hooks/useContactForm';
 import SectionHeader from '../common/SectionHeader';
 import ContactForm from './ContactForm';
+import AnimateOnIntersect from 'components/Animations/AnimateOnIntersect';
 
 export type ContactProps = {
   name: string;
@@ -33,13 +34,17 @@ const Contact: FunctionComponent<ContactProps> = () => {
         {/** Content */}
         <Stack className='z-10 space-y-16 w-full'>
           <Stack className='space-y-2 max-w-screen-lg mx-auto w-full px-8'>
-            <SectionHeader
-              title='CONTACT'
-              description='I would love to hear from you.'
-              theme='light'
-            ></SectionHeader>
+            <AnimateOnIntersect>
+              <SectionHeader
+                title='CONTACT'
+                description='I would love to hear from you.'
+                theme='light'
+              ></SectionHeader>
+            </AnimateOnIntersect>
           </Stack>
-          <ContactForm onSubmit={handleSubmit} isSubmitting={isLoading} />
+          <AnimateOnIntersect type='popOut' duration={800}>
+            <ContactForm onSubmit={handleSubmit} isSubmitting={isLoading} />
+          </AnimateOnIntersect>
           <Stack className='max-w-screen-md w-full py-4 px-8 mx-auto space-y-8 items-center'>
             <div className='w-full border border-t-gray-100' />
             <h4 className='text-slate-900 text-base font-medium'>

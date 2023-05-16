@@ -1,18 +1,22 @@
 import classNames from 'classnames';
 import React, { createContext, useContext, useEffect } from 'react';
 
-const defaultOptions: IntersectionObserverInit = {
-  root: null,
-  rootMargin: '0px 0px 100px 0px',
-  threshold: 1.0,
-};
-
-type AnimateOnIntersectTypes = 'fadeFromDown' | 'fadeFromRight';
+type AnimateOnIntersectTypes =
+  | 'fade'
+  | 'fadeFromDown'
+  | 'fadeFromRight'
+  | 'flip'
+  | 'popOut';
 
 const optionsPerType: Record<
   AnimateOnIntersectTypes,
   IntersectionObserverInit
 > = {
+  fade: {
+    root: null,
+    rootMargin: '0px 0px 100px 0px',
+    threshold: 1.0,
+  },
   fadeFromDown: {
     root: null,
     rootMargin: '0px 0px 100px 0px',
@@ -23,12 +27,26 @@ const optionsPerType: Record<
     rootMargin: '0px 0px 0px 0px',
     threshold: 1.0,
   },
+  flip: {
+    root: null,
+    rootMargin: '0px 0px -100px 0px',
+    threshold: 1.0,
+  },
+  popOut: {
+    root: null,
+    rootMargin: '0px 0px -100px 0px',
+    threshold: 1.0,
+  },
 };
 
 const initialPositionPerType: Record<
   AnimateOnIntersectTypes,
   { from: string; to: string }
 > = {
+  fade: {
+    from: 'transition-opacity opacity-0',
+    to: 'opacity-1',
+  },
   fadeFromDown: {
     from: 'transition opacity-0 translate-y-24',
     to: 'opacity-1 translate-y-0',
@@ -37,11 +55,21 @@ const initialPositionPerType: Record<
     from: 'transition opacity-0 -translate-x-24',
     to: 'opacity-1 translate-x-0',
   },
+  flip: {
+    from: 'transition opacity-0 ',
+    to: 'opacity-1 translate-x-0',
+  },
+  popOut: {
+    from: 'transition opacity-0 scale-0',
+    to: 'opacity-1 scale-1',
+  },
 };
 
 interface IAnimateOnIntersect {
   type?: AnimateOnIntersectTypes;
   children?: React.ReactNode;
+  persist?: boolean;
+  duration?: number;
 }
 
 interface IAnimateOnIntersectContext {
@@ -55,6 +83,8 @@ export const AnimateOnIntersectContext =
 
 const AnimateOnIntersect: React.FC<IAnimateOnIntersect> = ({
   type = 'fadeFromDown',
+  persist = true,
+  duration = 1000,
   children,
 }) => {
   const containerRef = React.useRef<HTMLDivElement>();
@@ -62,7 +92,12 @@ const AnimateOnIntersect: React.FC<IAnimateOnIntersect> = ({
 
   const callbackFunction: IntersectionObserverCallback = (entries) => {
     const [entry] = entries;
-    setIsInView(entry.isIntersecting);
+    setIsInView((prev) => {
+      if (prev === true && persist === true) {
+        return true;
+      }
+      return entry.isIntersecting;
+    });
   };
 
   useEffect(() => {
@@ -82,11 +117,14 @@ const AnimateOnIntersect: React.FC<IAnimateOnIntersect> = ({
       <div
         ref={containerRef}
         className={classNames(
-          'transition duration-1000',
+          'transition',
           isInView
             ? initialPositionPerType[type].to
             : initialPositionPerType[type].from
         )}
+        style={{
+          transitionDuration: `${duration}ms`,
+        }}
       >
         {children}
       </div>

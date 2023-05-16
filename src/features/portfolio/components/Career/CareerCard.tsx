@@ -2,12 +2,16 @@ import Row from 'layouts/Row';
 import Stack from 'layouts/Stack';
 import React, { FunctionComponent } from 'react';
 import CareerCardHeader from './CareerCardHeader';
+import AnimateOnIntersect from 'components/Animations/AnimateOnIntersect';
+import CareerTechCard from './CareerTechCard';
+import Image from 'next/image';
 
 export type CareerCardProps = {
   DescriptionComponent: React.ReactNode;
   HeaderComponent: React.ReactNode;
-  TechsComponent: React.ReactNode;
   apps: string[];
+  TechsComponent?: React.ReactNode;
+  TechIcons?: Array<string | null>;
 };
 
 interface SubComponents {
@@ -17,8 +21,9 @@ interface SubComponents {
 const CareerCard: FunctionComponent<CareerCardProps> & SubComponents = ({
   DescriptionComponent,
   HeaderComponent,
-  TechsComponent,
   apps,
+  TechsComponent = null,
+  TechIcons = [],
 }) => {
   return (
     <Row className='h-full'>
@@ -30,25 +35,74 @@ const CareerCard: FunctionComponent<CareerCardProps> & SubComponents = ({
       </Stack>
       <div className='flex-1 mb-24'>
         <Stack className='space-y-7'>
-          <Stack className='space-y-2'>
-            {HeaderComponent}
-            <div className='text-slate-500 text-2xl font-base'>
-              {DescriptionComponent}
-            </div>
-          </Stack>
-          <Row className='flex-wrap gap-2'>
-            {apps.map((app, i) => (
-              <ul
-                className='text-sm px-5 py-2 text-slate-500 border border-slate-500 rounded-3xl'
-                key={i}
-              >
-                {app}
-              </ul>
-            ))}
-          </Row>
+          <AnimateOnIntersect type='fadeFromRight'>
+            <Stack className='space-y-2'>
+              {HeaderComponent}
+              <div className='text-slate-500 text-2xl font-base'>
+                {DescriptionComponent}
+              </div>
+            </Stack>
+          </AnimateOnIntersect>
+          <AnimateOnIntersect type='fadeFromRight'>
+            <Row className='flex-wrap gap-2'>
+              {apps.map((app, i) => (
+                <ul
+                  className='text-sm px-5 py-2 text-slate-500 border border-slate-500 rounded-3xl'
+                  key={i}
+                >
+                  {app}
+                </ul>
+              ))}
+            </Row>
+          </AnimateOnIntersect>
         </Stack>
       </div>
-      <div className='flex-1'>{TechsComponent}</div>
+      {TechsComponent ? <div className='flex-1 -skew-y-3'>{TechsComponent}</div> : null}
+      {TechIcons.length > 0 ? (
+        <div className='flex-1 -skew-y-3'>
+          <Stack className='items-center space-y-3'>
+            <Row className='space-x-3'>
+              {[...TechIcons.slice(0, 3)].map((icon, i) => {
+                console.log(icon);
+                if (!icon) {
+                  return (
+                    <span className='opacity-0' key={i}>
+                      <CareerTechCard Image={<></>}></CareerTechCard>
+                    </span>
+                  );
+                }
+                return (
+                  <CareerTechCard
+                    key={i}
+                    Image={
+                      <Image src={icon} alt='TechIcon' width={60} height={60} />
+                    }
+                  />
+                );
+              })}
+            </Row>
+            <Row className='space-x-3'>
+              {[...TechIcons.slice(-2)].map((icon, i) => {
+                if (!icon) {
+                  return (
+                    <span className='opacity-0'>
+                      <CareerTechCard Image={<></>}></CareerTechCard>
+                    </span>
+                  );
+                }
+                return (
+                  <CareerTechCard
+                    key={i}
+                    Image={
+                      <Image src={icon} alt='TechIcon' width={60} height={60} />
+                    }
+                  />
+                );
+              })}
+            </Row>
+          </Stack>
+        </div>
+      ) : null}
     </Row>
   );
 };
