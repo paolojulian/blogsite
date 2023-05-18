@@ -47,7 +47,7 @@ const Contact: FunctionComponent<ContactProps> = () => {
           </AnimateOnIntersect>
           <Stack className='max-w-screen-md w-full py-4 px-8 mx-auto space-y-8 items-center'>
             <div className='w-full border border-t-gray-100' />
-            <h4 className='text-slate-900 text-base font-medium'>
+            <h4 className='text-slate-600 text-base font-medium'>
               Copyright © 2017-2023 Paolo Vincent Julian. All rights reserved.
             </h4>
           </Stack>

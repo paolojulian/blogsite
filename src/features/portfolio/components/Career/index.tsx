@@ -63,14 +63,14 @@ const Career: FunctionComponent<CareerProps> = () => {
             }
             DescriptionComponent={
               <p>
-                Promoted to being a{' '}
+                Promoted to a{' '}
                 <TextHighlight textColor='text-blue-400'>
                   Mid Full-Stack Developer
                 </TextHighlight>
-                . Still flashy and over-engineered coding, was able to gain
-                experience in 3rd party API integrations like{' '}
+                . I was still a flashy and over-engineered coder, but I was able
+                to gain experience in integrating third-party APIs such as{' '}
                 <TextHighlight textColor='text-slate-200'>
-                  FacebookAPI, Stripe, Twilio, etc.
+                  FacebookAPI, Stripe, Twilio, and more.
                 </TextHighlight>
               </p>
             }
@@ -98,23 +98,20 @@ const Career: FunctionComponent<CareerProps> = () => {
             }
             DescriptionComponent={
               <p>
-                Specialized in{' '}
+                Specializing in{' '}
                 <TextHighlight textColor='text-blue-400'>
                   Front-end Development
                 </TextHighlight>{' '}
-                and was in loved with
+                and being deeply passionate about
                 <TextHighlight textColor='text-sky-300'>
                   {' '}
                   TailwindCSS
                 </TextHighlight>
-                . Trying hard to follow the{' '}
-                <TextHighlight>“KISS”</TextHighlight> principle in most
-                projects. Helped in developing a{' '}
-                <TextHighlight textColor='text-yellow-400'>
-                  {' '}
-                  million dollar app
-                </TextHighlight>
-                .
+                . I have made concerted efforts to adhere to the{' '}
+                <TextHighlight>
+                  “KISS” (Keep it simple, stupid)
+                </TextHighlight>{' '}
+                principle in most projects. .
               </p>
             }
             TechIcons={[

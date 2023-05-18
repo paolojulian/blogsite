@@ -20,7 +20,7 @@ const ProjectCard: FunctionComponent<ProjectCardProps> = ({
         'h-[350px] w-[475px]',
         'relative',
         'bg-[linear-gradient(207.99deg,_rgba(248,250,252,0.2)_13.77%,rgba(248,250,252,0)_173.77%)]',
-        'border border-white/10'
+        'border border-slate-700/5'
       )}
     >
       {/* Contents */}
@@ -28,7 +28,7 @@ const ProjectCard: FunctionComponent<ProjectCardProps> = ({
         <Row className='space-x-4 w-fit h-full flex-nowrap'>{children}</Row>
       </div>
       {/* Overlay */}
-      <div className='absolute inset-0 w-full h-full bg-gradient-to-t from-black  to-transparent pointer-events-none'>
+      <div className='absolute inset-0 w-full h-full bg-gradient-to-t from-bg  to-transparent pointer-events-none'>
         <Stack className='justify-end h-full p-4'>
           <h3 className='font-bold text-base'>{title}</h3>
           <p className='font-base text-sm text-slate-400'>{description}</p>

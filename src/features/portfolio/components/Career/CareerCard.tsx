@@ -57,13 +57,14 @@ const CareerCard: FunctionComponent<CareerCardProps> & SubComponents = ({
           </AnimateOnIntersect>
         </Stack>
       </div>
-      {TechsComponent ? <div className='flex-1 -skew-y-3'>{TechsComponent}</div> : null}
+      {TechsComponent ? (
+        <div className='flex-1 -skew-y-3'>{TechsComponent}</div>
+      ) : null}
       {TechIcons.length > 0 ? (
-        <div className='flex-1 -skew-y-3'>
+        <div className='flex-1 -skew-y-1'>
           <Stack className='items-center space-y-3'>
             <Row className='space-x-3'>
               {[...TechIcons.slice(0, 3)].map((icon, i) => {
-                console.log(icon);
                 if (!icon) {
                   return (
                     <span className='opacity-0' key={i}>
@@ -72,12 +73,18 @@ const CareerCard: FunctionComponent<CareerCardProps> & SubComponents = ({
                   );
                 }
                 return (
-                  <CareerTechCard
-                    key={i}
-                    Image={
-                      <Image src={icon} alt='TechIcon' width={60} height={60} />
-                    }
-                  />
+                  <AnimateOnIntersect key={i} delay={200 * i}>
+                    <CareerTechCard
+                      Image={
+                        <Image
+                          src={icon}
+                          alt='TechIcon'
+                          width={60}
+                          height={60}
+                        />
+                      }
+                    />
+                  </AnimateOnIntersect>
                 );
               })}
             </Row>
@@ -91,12 +98,18 @@ const CareerCard: FunctionComponent<CareerCardProps> & SubComponents = ({
                   );
                 }
                 return (
-                  <CareerTechCard
-                    key={i}
-                    Image={
-                      <Image src={icon} alt='TechIcon' width={60} height={60} />
-                    }
-                  />
+                  <AnimateOnIntersect key={i} delay={200 * (i + 2)}>
+                    <CareerTechCard
+                      Image={
+                        <Image
+                          src={icon}
+                          alt='TechIcon'
+                          width={60}
+                          height={60}
+                        />
+                      }
+                    />
+                  </AnimateOnIntersect>
                 );
               })}
             </Row>

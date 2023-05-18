@@ -70,6 +70,7 @@ interface IAnimateOnIntersect {
   children?: React.ReactNode;
   persist?: boolean;
   duration?: number;
+  delay?: number;
 }
 
 interface IAnimateOnIntersectContext {
@@ -85,6 +86,7 @@ const AnimateOnIntersect: React.FC<IAnimateOnIntersect> = ({
   type = 'fadeFromDown',
   persist = true,
   duration = 1000,
+  delay = 0,
   children,
 }) => {
   const containerRef = React.useRef<HTMLDivElement>();
@@ -124,6 +126,7 @@ const AnimateOnIntersect: React.FC<IAnimateOnIntersect> = ({
         )}
         style={{
           transitionDuration: `${duration}ms`,
+          transitionDelay: `${delay}ms`,
         }}
       >
         {children}
