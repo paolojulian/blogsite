@@ -12,7 +12,7 @@ export type AppButtonProps = {
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 type RoundedCorner = 'full' | 'bottom' | 'top' | 'none';
-type Theme = 'primary' | 'primaryOutline' | 'red' | 'black';
+type Theme = 'primary' | 'primaryOutline' | 'red' | 'black' | 'borders';
 type Size = 'sm' | 'base' | 'lg';
 
 const backgroundMap: Record<Theme, string> = {
@@ -23,12 +23,14 @@ const backgroundMap: Record<Theme, string> = {
   ),
   red: 'bg-red-400 hover:bg-red-500 text-white',
   black: 'bg-black hover:bg-gray-900 text-white font-bold',
+  borders: classNames('text-white', 'bg-rose-500 hover:bg-rose-600'),
 };
 const disabledMap: Record<Theme, string> = {
   primary: 'bg-gray-200 text-gray-400',
   primaryOutline: classNames('border border-gray-300 text-gray-400'),
   red: 'bg-red-200',
   black: 'bg-black hover:bg-gray-900 text-white font-bold',
+  borders: 'bg-gray-200 text-gray-400',
 };
 
 const roundedMap: Record<RoundedCorner, string> = {
@@ -67,15 +69,19 @@ const AppButton: FunctionComponent<AppButtonProps> = ({
       {...props}
       className={classNames(
         'px-12 py-2 text-center',
-        'm-2',
         'transition scale-100',
         sizeMap[size],
         roundedMap[rounded],
         !disabled && 'active:scale-[0.99]',
         disabled ? disabledMap[theme] : backgroundMap[theme],
         block ? 'w-full' : 'w-fit',
-        'before:border-t before:border-l before:border-gray-200 before:absolute before:h-full before:-top-2 before:-left-2 before:w-full before:pt-2',
-        'after:border-b after:border-r after:border-gray-200 after:absolute after:h-full after:-bottom-2 after:-right-2 after:w-full after:pt-2'
+        theme === 'borders' ? 'm-2' : '',
+        theme === 'borders'
+          ? 'before:border-t before:border-l before:border-gray-200 before:absolute before:h-full before:-top-2 before:-left-2 before:w-full before:pt-2'
+          : '',
+        theme === 'borders'
+          ? 'after:border-b after:border-r after:border-gray-200 after:absolute after:h-full after:-bottom-2 after:-right-2 after:w-full after:pt-2'
+          : ''
       )}
       disabled={disabled}
     >

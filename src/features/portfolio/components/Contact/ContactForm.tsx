@@ -46,53 +46,57 @@ const ContactForm: FunctionComponent<ContactFormProps> = ({
     >
       {({ values, handleSubmit, setFieldValue }) => (
         <form onSubmit={handleSubmit} method='POST' noValidate>
-          <div className='w-full max-w-screen-lg mx-auto px-8'>
+          <div className='w-full'>
             <Stack className='space-y-2'>
               <Row className='space-x-2 w-full'>
                 <TextInput
+                  onChange={(e) => setFieldValue('name', e.target.value)}
                   label='YOUR NAME'
                   name='name'
                   placeholder='Johny Sins?'
                   value={values.name}
-                  onChange={(e) => setFieldValue('name', e.target.value)}
+                  theme='outlined'
                   rounded='top-left'
                 />
                 <TextInput
+                  onChange={(e) => setFieldValue('email', e.target.value)}
                   label='YOUR EMAIL'
                   name='email'
                   placeholder='email@email.com'
                   value={values.email}
-                  onChange={(e) => setFieldValue('email', e.target.value)}
+                  theme='outlined'
                   rounded='top-right'
                 />
               </Row>
               <Row className='space-x-2 w-full'>
                 <TextInput
+                  onChange={(e) => setFieldValue('mobile', e.target.value)}
                   label='YOUR MOBILE NUMBER'
                   name='mobile_number'
                   placeholder='09279488XXX'
                   value={values.mobile}
-                  onChange={(e) => setFieldValue('mobile', e.target.value)}
+                  theme='outlined'
                 />
                 <TextInput
+                  onChange={(e) => setFieldValue('subject', e.target.value)}
                   label='SUBJECT'
                   name='subject'
                   placeholder='WORK'
                   value={values.subject}
-                  onChange={(e) => setFieldValue('subject', e.target.value)}
+                  theme='outlined'
                 />
               </Row>
               <TextAreaInput
+                onChange={(e) => setFieldValue('message', e.target.value)}
                 label='MESSAGE'
                 name='Message'
                 value={values.message}
-                onChange={(e) => setFieldValue('message', e.target.value)}
                 rows={8}
+                theme='outlined'
               />
               <AppButton
                 type='submit'
                 isLoading={isSubmitting}
-                theme='red'
                 rounded='bottom'
               >
                 <Row className='space-x-2 items-center'>

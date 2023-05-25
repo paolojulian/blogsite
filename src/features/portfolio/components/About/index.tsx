@@ -42,7 +42,8 @@ const About: FunctionComponent<AboutProps> = () => {
               </AnimateOnIntersect>
               <AnimateOnIntersect>
                 <p className='text-slate-500 text-left text-2xl'>
-                  Experienced since <TextHighlight>2017</TextHighlight>, I
+                  Experienced since <TextHighlight>2017</TextHighlight>, I am a
+                  <TextHighlight> full-stack developer</TextHighlight> who
                   specialize in{' '}
                   <TextHighlight>front-end development</TextHighlight> and
                   thrive on crafting captivating user experiences. I enjoy
@@ -54,7 +55,7 @@ const About: FunctionComponent<AboutProps> = () => {
             </Stack>
 
             <AnimateOnIntersect>
-              <AppButton block={false} rounded='none'>
+              <AppButton block={false} rounded='none' theme="borders">
                 <span className='font-extrabold text-xl'>HIRE ME</span>
               </AppButton>
             </AnimateOnIntersect>

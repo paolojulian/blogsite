@@ -3,7 +3,7 @@ import Row from 'layouts/Row';
 import Stack from 'layouts/Stack';
 import React, { FunctionComponent, TextareaHTMLAttributes } from 'react';
 
-type TextAreaInputTheme = 'default' | 'white';
+type TextAreaInputTheme = 'default' | 'white' | 'outlined';
 
 export type TextAreaInputProps = {
   label: string;
@@ -14,6 +14,17 @@ export type TextAreaInputProps = {
 const colorTheme: Record<TextAreaInputTheme, string> = {
   default: 'bg-slate-100 hover:bg-slate-200/80',
   white: 'bg-white hover:bg-slate-200',
+  outlined: 'bg-none border border-slate-500 hover:bg-slate-700',
+};
+const labelColorTheme: Record<TextAreaInputTheme, string> = {
+  default: 'text-primary-800',
+  white: 'text-primary-800',
+  outlined: 'text-primary-500',
+};
+const inputColorTheme: Record<TextAreaInputTheme, string> = {
+  default: 'text-slate-800',
+  white: 'text-slate-800',
+  outlined: 'text-slate-300',
 };
 
 const TextAreaInput: FunctionComponent<TextAreaInputProps> = ({
@@ -59,7 +70,7 @@ const TextAreaInput: FunctionComponent<TextAreaInputProps> = ({
               'absolute top-2 left-3',
               willShow ? 'opacity-1 scale-100' : 'opacity-0 scale-0',
               'uppercase font-bold text-xs tracking-wide',
-              'text-primary-800'
+              labelColorTheme[theme]
             )}
             htmlFor={props.name}
           >
@@ -69,9 +80,10 @@ const TextAreaInput: FunctionComponent<TextAreaInputProps> = ({
             className={classNames(
               'transition-opacity',
               'bg-transparent pt-6 pb-3 px-3',
-              'font-medium text-gray-800',
+              'font-medium',
               'resize-none',
-              willShow ? 'opacity-1' : 'opacity-0'
+              willShow ? 'opacity-1' : 'opacity-0',
+              inputColorTheme[theme]
             )}
             {...props}
           ></textarea>

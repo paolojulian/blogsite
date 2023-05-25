@@ -21,36 +21,70 @@ const Contact: FunctionComponent<ContactProps> = () => {
 
   return (
     <>
-      <Stack className='items-center bg-white text-gray-900 -pt-32 pb-24 gap-24 relative'>
+      <Stack className='items-center pb-24 gap-24 relative'>
         {/** Separator */}
-        <div
+        {/* <div
           className={classNames(
             'absolute top-0 inset-x-0',
             'w-0 h-0',
             'border-r-[100vw] border-r-transparent border-b-[13.9vw] border-b-white',
             'mt-[-13.8vw]'
           )}
-        ></div>
+        ></div> */}
         {/** Content */}
         <Stack className='z-10 space-y-16 w-full'>
-          <Stack className='space-y-2 max-w-screen-lg mx-auto w-full px-8'>
-            <AnimateOnIntersect>
-              <SectionHeader
-                title='CONTACT'
-                description='I would love to hear from you.'
-                theme='light'
-              ></SectionHeader>
-            </AnimateOnIntersect>
-          </Stack>
           <AnimateOnIntersect type='popOut' duration={800}>
-            <ContactForm onSubmit={handleSubmit} isSubmitting={isLoading} />
+            <Stack className='max-w-screen-lg mx-auto items-center'>
+              <div className='rounded-3xl border border-slate-500 w-full'>
+                <Stack className='w-full h-full'>
+                  {/* HEADER */}
+                  <div className='w-full h-[60px] border-b border-slate-500'>
+                    <Row className='w-full h-full items-center px-6 space-x-8'>
+                      <div className='bg-gradient-to-br from-slate-600 to-slate-500 w-[27px] h-[27px] rounded-full'></div>
+                      <div className='bg-gradient-to-br from-slate-600 to-slate-500 w-[300px] h-[20px] rounded-full animate-pulse'></div>
+                    </Row>
+                  </div>
+                  {/* Content */}
+                  <Row className='flex-1 h-full'>
+                    {/* Sidebar */}
+                    <Stack className='w-[250px] h-auto border-r border-slate-500 p-5 animate-pulse justify-between'>
+                      <Stack className='space-y-4'>
+                        &nbsp;
+                        <div className='bg-gradient-to-br from-slate-600 to-slate-500 w-full h-[27px] rounded-full'></div>
+                        <div className='bg-gradient-to-br from-slate-600 to-slate-500 w-[calc(100%-3rem)] h-[27px] rounded-full'></div>
+                        <div className='bg-gradient-to-br from-slate-600 to-slate-500 w-[calc(100%-2rem)] h-[27px] rounded-full'></div>
+                        <div className='bg-gradient-to-br from-slate-600 to-slate-500 w-[calc(100%-0rem)] h-[27px] rounded-full'></div>
+                        <div className='bg-gradient-to-br from-slate-600 to-slate-500 w-[calc(100%-2rem)] h-[27px] rounded-full'></div>
+                        <div className='bg-gradient-to-br from-slate-600 to-slate-500 w-[calc(100%-5rem)] h-[27px] rounded-full'></div>
+                        <div className='bg-gradient-to-br from-slate-600 to-slate-500 w-[calc(100%-0rem)] h-[27px] rounded-full'></div>
+                      </Stack>
+                      <div className='bg-gradient-to-br from-slate-600 to-slate-500 w-[calc(100%-0rem)] h-[40px]'></div>
+                    </Stack>
+                    {/* Contact */}
+                    <Stack className='flex-1 h-full p-14 space-y-6'>
+                      <Stack>
+                        <h3 className='font-bold text-2xl text-lofi-yellow'>
+                          CONTACT
+                        </h3>
+                        <h5 className='font-regular text-base text-slate-400'>
+                          I'd love to hear from you
+                        </h5>
+                      </Stack>
+                      <ContactForm
+                        onSubmit={handleSubmit}
+                        isSubmitting={isLoading}
+                      />
+                    </Stack>
+                  </Row>
+                </Stack>
+              </div>
+              <div className='w-0.5 h-[75px] bg-slate-500' />
+              <div className='w-[calc(100%-20rem)] max-w-screen-lg border border-t-slate-500' />
+              <h4 className='text-slate-500 text-base font-medium my-4'>
+                Copyright © 2017-2023 Paolo Vincent Julian. All rights reserved.
+              </h4>
+            </Stack>
           </AnimateOnIntersect>
-          <Stack className='max-w-screen-md w-full py-4 px-8 mx-auto space-y-8 items-center'>
-            <div className='w-full border border-t-gray-100' />
-            <h4 className='text-slate-600 text-base font-medium'>
-              Copyright © 2017-2023 Paolo Vincent Julian. All rights reserved.
-            </h4>
-          </Stack>
         </Stack>
       </Stack>
     </>

@@ -18,7 +18,7 @@ type RoundedCorner =
   | 'none'
   | 'top-right'
   | 'top-left';
-type TextInputTheme = 'default' | 'white';
+type TextInputTheme = 'default' | 'white' | 'outlined';
 
 export type TextInputProps = {
   label: string;
@@ -36,6 +36,7 @@ export type TextInputProps = {
 const colorTheme: Record<TextInputTheme, string> = {
   default: 'bg-slate-100 hover:bg-slate-200/80',
   white: 'bg-white hover:bg-slate-200',
+  outlined: 'bg-none border border-slate-500 hover:bg-slate-700',
 };
 
 const roundedMap: Record<RoundedCorner, string> = {
@@ -45,6 +46,17 @@ const roundedMap: Record<RoundedCorner, string> = {
   'top-left': 'rounded-tl-3xl',
   'top-right': 'rounded-tr-3xl',
   none: '',
+};
+
+const labelColorTheme: Record<TextInputTheme, string> = {
+  default: 'text-primary-800',
+  white: 'text-primary-800',
+  outlined: 'text-primary-500',
+};
+const inputColorTheme: Record<TextInputTheme, string> = {
+  default: 'text-slate-800',
+  white: 'text-slate-800',
+  outlined: 'text-slate-300',
 };
 
 const TextInput: FunctionComponent<TextInputProps> = ({
@@ -107,7 +119,7 @@ const TextInput: FunctionComponent<TextInputProps> = ({
             <label
               className={classNames(
                 'font-extrabold tracking-wide',
-                'text-gray-500 text-sm'
+                'text-slate-500 text-sm'
               )}
               htmlFor={name}
             >
@@ -122,7 +134,7 @@ const TextInput: FunctionComponent<TextInputProps> = ({
               'absolute top-2 left-4',
               willShow ? 'opacity-1 scale-100' : 'opacity-0 scale-0',
               'uppercase font-extrabold text-xs',
-              'text-primary-800'
+              labelColorTheme[theme]
             )}
             htmlFor={name}
           >
@@ -142,7 +154,7 @@ const TextInput: FunctionComponent<TextInputProps> = ({
                 onClick={handleClear}
                 tabIndex={-1}
               >
-                <CloseIcon className='fill-gray-600 hover:fill-gray-700 transition-colors h-6 w-6' />
+                <CloseIcon className='fill-slate-600 hover:fill-slate-700 transition-colors h-6 w-6' />
               </button>
             ) : null}
             {type === 'password' ? (
@@ -159,10 +171,10 @@ const TextInput: FunctionComponent<TextInputProps> = ({
               >
                 {localType === 'password' ? (
                   <>
-                    <EyeSlashIcon className='stroke-gray-600 w-6 h-6' />
+                    <EyeSlashIcon className='stroke-slate-600 w-6 h-6' />
                   </>
                 ) : (
-                  <EyeIcon className='stroke-gray-600 w-6 h-6' />
+                  <EyeIcon className='stroke-slate-600 w-6 h-6' />
                 )}
               </button>
             ) : null}
@@ -172,9 +184,10 @@ const TextInput: FunctionComponent<TextInputProps> = ({
             ref={inputRef}
             className={classNames(
               'transition-opacity',
-              'bg-transparent pt-6 pb-3 px-4',
-              'font-bold text-gray-800',
+              'bg-transparent pt-7 pb-2 px-4',
+              'font-medium',
               willShow ? 'opacity-1' : 'opacity-0',
+              inputColorTheme[theme],
               roundedMap[rounded]
             )}
             {...props}

@@ -1,7 +1,6 @@
 import Footer from '../footer';
 import Meta from '../meta';
 import Menu from '../molecules/Menu';
-import Contact from '../organisms/Contact';
 
 type Props = {
   preview?: boolean;
@@ -13,7 +12,7 @@ const MainLayout = ({ children }: Props) => {
     <>
       <Meta />
       <div className='min-h-screen w-screen overflow-hidden bg-white dark:bg-gray-900 text-gray-900 dark:text-white'>
-        <div className="fixed bottom-0 sm:hidden bg-white">
+        <div className='fixed bottom-0 sm:hidden bg-white'>
           <Menu />
         </div>
         <div className='min-h-screen max-w-screen w-screen-md mx-auto overflow-hidden'>
@@ -47,7 +46,6 @@ const MainLayout = ({ children }: Props) => {
                 <div className='w-full h-60 rounded-lg bg-gray-500 flex justify-center items-center my-5'>
                   <span>ADS</span>
                 </div>
-                <Contact />
               </div>
             </div>
           </div>

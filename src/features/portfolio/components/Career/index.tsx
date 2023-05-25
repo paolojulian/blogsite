@@ -14,7 +14,7 @@ export type CareerProps = {
 
 const Career: FunctionComponent<CareerProps> = () => {
   return (
-    <div className='max-w-screen-lg mx-auto my-32 pb-32 relative'>
+    <div className='max-w-screen-lg mx-auto my-32 relative'>
       <Stack className='bg-transparent text-white py-32 space-y-24 relative z-20'>
         <AnimateOnIntersect>
           <SectionHeader
