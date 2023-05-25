@@ -35,7 +35,7 @@ const Career: FunctionComponent<CareerProps> = () => {
             DescriptionComponent={
               <p>
                 Still a clumsy{' '}
-                <TextHighlight textColor='text-green-500'>
+                <TextHighlight textColor='text-orange-300'>
                   Junior Software Application Developer
                 </TextHighlight>{' '}
                 who thinks he knows it all. Got a huge experience in
@@ -64,7 +64,7 @@ const Career: FunctionComponent<CareerProps> = () => {
             DescriptionComponent={
               <p>
                 Promoted to a{' '}
-                <TextHighlight textColor='text-blue-400'>
+                <TextHighlight textColor='text-orange-300'>
                   Mid Full-Stack Developer
                 </TextHighlight>
                 . I was still a flashy and over-engineered coder, but I was able
@@ -99,7 +99,7 @@ const Career: FunctionComponent<CareerProps> = () => {
             DescriptionComponent={
               <p>
                 Specializing in{' '}
-                <TextHighlight textColor='text-blue-400'>
+                <TextHighlight textColor='text-orange-300'>
                   Front-end Development
                 </TextHighlight>{' '}
                 and being deeply passionate about
@@ -127,6 +127,7 @@ const Career: FunctionComponent<CareerProps> = () => {
               'Election App',
               'Microfrontend',
               'Single Codebase App (React-native-web)',
+              'Deployment App (using Terraform)',
             ]}
           />
         </Stack>

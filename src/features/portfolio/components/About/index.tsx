@@ -7,8 +7,7 @@ import GithubIcon from 'components/Icons/GithubIcon';
 import LinkedInIcon from 'components/Icons/LinkedInIcon';
 import Row from 'layouts/Row';
 import Stack from 'layouts/Stack';
-import React, { FunctionComponent, useEffect } from 'react';
-import { TypedOptions } from 'typed.js';
+import React, { FunctionComponent } from 'react';
 import TextHighlight from '../common/TextHighlight';
 import AboutSectionHeader from './SectionHeader';
 
@@ -43,32 +42,19 @@ const About: FunctionComponent<AboutProps> = () => {
               </AnimateOnIntersect>
               <AnimateOnIntersect>
                 <p className='text-slate-500 text-left text-2xl'>
-                  I started my journey on <TextHighlight>2017</TextHighlight>. I
-                  excel in creating responsive web-apps using JavaScript
-                  frameworks, particularly{' '}
-                  <TextHighlight textColor='text-blue-400'>React</TextHighlight>{' '}
-                  and{' '}
-                  <TextHighlight textColor='text-green-500'>
-                    Next.js
-                  </TextHighlight>
-                  . Although I was{' '}
-                  <TextHighlight textColor='text-slate-400'>
-                    {' '}
-                    full-stack developer
-                  </TextHighlight>
-                  , I decided to focus on{' '}
-                  <TextHighlight textColor='text-rose-400'>
-                    front-end development {`<3`}
-                  </TextHighlight>{' '}
-                  since it is more enjoyable and more fun. I enjoy helping
-                  others achieve their goals and is passionate in creating
-                  interesting applications.
+                  Experienced since <TextHighlight>2017</TextHighlight>, I
+                  specialize in{' '}
+                  <TextHighlight>front-end development</TextHighlight> and
+                  thrive on crafting captivating user experiences. I enjoy
+                  tackling challenging projects that push my knowledge to the
+                  limit, while embracing the elegance of simple yet complex
+                  designs.
                 </p>
               </AnimateOnIntersect>
             </Stack>
 
             <AnimateOnIntersect>
-              <AppButton block={false}>
+              <AppButton block={false} rounded='none'>
                 <span className='font-extrabold text-xl'>HIRE ME</span>
               </AppButton>
             </AnimateOnIntersect>

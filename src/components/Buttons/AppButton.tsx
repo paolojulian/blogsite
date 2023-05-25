@@ -16,7 +16,7 @@ type Theme = 'primary' | 'primaryOutline' | 'red' | 'black';
 type Size = 'sm' | 'base' | 'lg';
 
 const backgroundMap: Record<Theme, string> = {
-  primary: classNames('text-white', 'bg-rose-400 hover:bg-rose-500'),
+  primary: classNames('text-white', 'bg-rose-500 hover:bg-rose-600'),
   primaryOutline: classNames(
     'border border-primary-500 hover:bg-primary-500 active:bg-primary-600 active:border-primary-600',
     'text-primary-500 hover:text-white'
@@ -67,12 +67,15 @@ const AppButton: FunctionComponent<AppButtonProps> = ({
       {...props}
       className={classNames(
         'px-12 py-2 text-center',
-        'transition-colors scale-100',
+        'm-2',
+        'transition scale-100',
         sizeMap[size],
         roundedMap[rounded],
         !disabled && 'active:scale-[0.99]',
         disabled ? disabledMap[theme] : backgroundMap[theme],
-        block ? 'w-full' : 'w-fit'
+        block ? 'w-full' : 'w-fit',
+        'before:border-t before:border-l before:border-gray-200 before:absolute before:h-full before:-top-2 before:-left-2 before:w-full before:pt-2',
+        'after:border-b after:border-r after:border-gray-200 after:absolute after:h-full after:-bottom-2 after:-right-2 after:w-full after:pt-2'
       )}
       disabled={disabled}
     >

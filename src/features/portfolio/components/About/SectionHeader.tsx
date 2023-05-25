@@ -31,11 +31,11 @@ const AboutSectionHeader: FunctionComponent<AboutSectionHeader> = ({
 
   return (
     <SectionHeader
-      title='PAOLO VINCENT JULIAN'
+      title='HELLO THERE.'
       description={
         <Row>
           I am a&nbsp;
-          <span id='typed' className='text-cyan-500'></span>
+          <span id='typed' className='text-orange-300'></span>
         </Row>
       }
     ></SectionHeader>

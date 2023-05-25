@@ -22,7 +22,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        bg: '#181a25',
+        bg: '#101331',
         primary: colors.cyan,
         gray: colors.neutral,
         'accent-1': '#FAFAFA',
