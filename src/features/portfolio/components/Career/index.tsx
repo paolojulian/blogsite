@@ -1,11 +1,9 @@
-import Row from 'layouts/Row';
 import Stack from 'layouts/Stack';
 import Image from 'next/image';
 import React, { FunctionComponent } from 'react';
 import SectionHeader from '../common/SectionHeader';
 import TextHighlight from '../common/TextHighlight';
 import CareerCard from './CareerCard';
-import CareerTechCard from './CareerTechCard';
 import AnimateOnIntersect from 'components/Animations/AnimateOnIntersect';
 
 export type CareerProps = {
@@ -133,7 +131,8 @@ const Career: FunctionComponent<CareerProps> = () => {
         </Stack>
       </Stack>
       <Image
-        className='absolute -top-60 -right-3/4 z-0'
+        draggable={false}
+        className='absolute -bottom-60 -right-3/4 z-0'
         src='/assets/portfolio/Galaxy.jpg'
         alt='Galaxy'
         quality={90}

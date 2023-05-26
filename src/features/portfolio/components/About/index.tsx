@@ -25,9 +25,27 @@ const About: FunctionComponent<AboutProps> = () => {
               <span className='writing-vertical text-slate-400'>Follow me</span>
               <span className='w-1 h-20 border-l border-l-slate-400'></span>
               <Stack className='space-y-2'>
-                <FacebookIcon />
-                <GithubIcon />
-                <LinkedInIcon />
+                <a
+                  href='https://www.facebook.com/profile.php?id=100078321445396'
+                  target='_blank'
+                  className='hover:scale-125 transition-transform'
+                >
+                  <FacebookIcon />
+                </a>
+                <a
+                  href='https://github.com/paolojulian'
+                  target='_blank'
+                  className='hover:scale-125 transition-transform'
+                >
+                  <GithubIcon />
+                </a>
+                <a
+                  href='https://www.linkedin.com/in/pipz/'
+                  target='_blank'
+                  className='hover:scale-125 transition-transform'
+                >
+                  <LinkedInIcon />
+                </a>
               </Stack>
             </Stack>
           </AnimateOnIntersect>
@@ -55,7 +73,7 @@ const About: FunctionComponent<AboutProps> = () => {
             </Stack>
 
             <AnimateOnIntersect>
-              <AppButton block={false} rounded='none' theme="borders">
+              <AppButton block={false} rounded='none' theme='borders'>
                 <span className='font-extrabold text-xl'>HIRE ME</span>
               </AppButton>
             </AnimateOnIntersect>

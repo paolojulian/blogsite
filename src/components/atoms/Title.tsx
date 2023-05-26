@@ -11,7 +11,7 @@ const Title: FunctionComponent<TitleProps> = ({
 }) => {
   return (
     <p
-      className={classNames('text-3xl font-bold text-gray-800', className)}
+      className={classNames('text-3xl font-bold text-orange-300', className)}
       {...props}
     ></p>
   );
