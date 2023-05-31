@@ -1,5 +1,5 @@
-import classNames from "classnames";
-import React, { createContext, useContext } from "react";
+import classNames from 'classnames';
+import React, { createContext, useContext } from 'react';
 
 interface IModalBlurProvider {
   children?: React.ReactNode;
@@ -24,8 +24,8 @@ const ModalBlurProvider: React.FC<IModalBlurProvider> = ({ children }) => {
     <ModalBlurContext.Provider value={{ willBlur, setWillBlur }}>
       <div
         className={classNames(
-          "w-full h-full",
-          willBlur ? "blur-3xl" : "blur-none"
+          'w-full h-full',
+          willBlur ? 'blur-3xl' : 'blur-none'
         )}
       >
         {children}

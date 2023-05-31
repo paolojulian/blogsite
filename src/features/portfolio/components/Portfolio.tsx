@@ -1,4 +1,4 @@
-import Hero from 'features/portfolio/components/Sections/Hero';
+import Hero from './Hero';
 import React, { FunctionComponent } from 'react';
 import About from './About';
 import Career from './Career';

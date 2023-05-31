@@ -9,7 +9,8 @@ export type ProvidersProps = {
 const Providers: FunctionComponent<ProvidersProps> = ({ children }) => {
   return (
     <QueryProvider>
-      <ModalBlurProvider>{children}</ModalBlurProvider>
+      {children}
+      {/* <ModalBlurProvider>{children}</ModalBlurProvider> */}
     </QueryProvider>
   );
 };

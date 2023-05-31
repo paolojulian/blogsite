@@ -1,0 +1,32 @@
+.parallax {
+  perspective: 100px;
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+  background: linear-gradient(
+      0deg,
+      rgba(255, 159, 77, 0.2),
+      rgba(255, 159, 77, 0.2)
+    ),
+    radial-gradient(123.92% 112.69% at 48.46% 37.22%, #ffc3a0 0%, #ff7692 100%)
+      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+}
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  z-index: -1;
+}
+
+$parallax__layers: 8;
+
+@for $i from 0 through $parallax__layers {
+  $x: calc(($parallax__layers - $i) / 2);
+  $translateZ: calc(-100 * $x);
+  .parallax__#{$i} {
+    transform: translateZ($translateZ + 0px) scale($x + 1);
+  }
+}
