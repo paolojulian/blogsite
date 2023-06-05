@@ -14,6 +14,19 @@ const Hero: FunctionComponent<HeroProps> = (props) => {
     <>
       {/* Parallax */}
       <div className={classNames(styles.parallax)}>
+        <div className='absolute inset-0 left-8'>
+          <div className={classNames('sticky top-5 left-8')}>
+            <Stack>
+              <h1 className='font-black text-[62px] tracking-wider inter leading-[60px]'>
+                <span className='text-[#5F5671CC]'>PAOLO</span>
+                <span className='text-[#4B415F]'>JULIAN</span>
+              </h1>
+              <h2 className='text-[22px] tracking-[0.16em] text-[#2E3357] leading-6'>
+                Software Engineer
+              </h2>
+            </Stack>
+          </div>
+        </div>
         <div
           className={classNames(styles.background, styles['parallax__8'])}
         ></div>
