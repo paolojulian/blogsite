@@ -33,7 +33,7 @@ const Contact: FunctionComponent<ContactProps> = () => {
         ></div> */}
         {/** Content */}
         <Stack className='z-10 space-y-16 w-full'>
-          <Stack className='max-w-screen-lg mx-auto items-center'>
+          <Stack className='max-w-screen-lg mx-auto items-center w-full'>
             <div className='rounded-3xl border border-slate-500 w-full'>
               <Stack className='w-full h-full'>
                 {/* HEADER */}
