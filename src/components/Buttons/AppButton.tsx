@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import Row from 'layouts/Row';
 import React, { ButtonHTMLAttributes, FunctionComponent } from 'react';
+import styles from './AppButton.module.scss';
 // import Spinner from "../Spinners/Spinner";
 
 export type AppButtonProps = {
@@ -58,8 +59,14 @@ const AppButton: FunctionComponent<AppButtonProps> = ({
 }) => {
   if (isLoading) {
     return (
-      <Row className={classNames('justify-center items-center', sizeMap[size])}>
-        Loading...
+      <Row
+        className={classNames(
+          'justify-center items-center text-gray-50',
+          styles.loadingAnimation,
+          sizeMap[size]
+        )}
+      >
+        Sending
         {/**<Spinner className="w-8 h-8 stroke-primary-500" /> */}
       </Row>
     );

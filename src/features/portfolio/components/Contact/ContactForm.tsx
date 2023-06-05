@@ -44,13 +44,15 @@ const ContactForm: FunctionComponent<ContactFormProps> = ({
       initialValues={initialValues}
       validationSchema={contactFormSchema}
     >
-      {({ values, handleSubmit, setFieldValue }) => (
+      {({ values, touched, errors, handleSubmit, setFieldValue }) => (
         <form onSubmit={handleSubmit} method='POST' noValidate>
           <div className='w-full'>
             <Stack className='space-y-2'>
               <Row className='space-x-2 w-full'>
                 <TextInput
                   onChange={(e) => setFieldValue('name', e.target.value)}
+                  error={!!touched.name && errors.name}
+                  showErrorMessage={false}
                   label='YOUR NAME'
                   name='name'
                   placeholder='Johny Sins?'
@@ -60,6 +62,8 @@ const ContactForm: FunctionComponent<ContactFormProps> = ({
                 />
                 <TextInput
                   onChange={(e) => setFieldValue('email', e.target.value)}
+                  error={!!touched.email && errors.email}
+                  showErrorMessage={false}
                   label='YOUR EMAIL'
                   name='email'
                   placeholder='email@email.com'
@@ -71,6 +75,8 @@ const ContactForm: FunctionComponent<ContactFormProps> = ({
               <Row className='space-x-2 w-full'>
                 <TextInput
                   onChange={(e) => setFieldValue('mobile', e.target.value)}
+                  error={!!touched.mobile && errors.mobile}
+                  showErrorMessage={false}
                   label='YOUR MOBILE NUMBER'
                   name='mobile_number'
                   placeholder='09279488XXX'
@@ -79,6 +85,8 @@ const ContactForm: FunctionComponent<ContactFormProps> = ({
                 />
                 <TextInput
                   onChange={(e) => setFieldValue('subject', e.target.value)}
+                  error={!!touched.subject && errors.subject}
+                  showErrorMessage={false}
                   label='SUBJECT'
                   name='subject'
                   placeholder='WORK'
@@ -88,6 +96,7 @@ const ContactForm: FunctionComponent<ContactFormProps> = ({
               </Row>
               <TextAreaInput
                 onChange={(e) => setFieldValue('message', e.target.value)}
+                error={!!touched.message && errors.message}
                 label='MESSAGE'
                 name='Message'
                 value={values.message}

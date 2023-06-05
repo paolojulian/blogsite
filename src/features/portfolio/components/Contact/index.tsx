@@ -1,12 +1,8 @@
-import classNames from 'classnames';
 import Row from 'layouts/Row';
 import Stack from 'layouts/Stack';
-import Image from 'next/image';
 import React, { FunctionComponent } from 'react';
 import useContactForm from '../../hooks/useContactForm';
-import SectionHeader from '../common/SectionHeader';
 import ContactForm from './ContactForm';
-import AnimateOnIntersect from 'components/Animations/AnimateOnIntersect';
 
 export type ContactProps = {
   name: string;

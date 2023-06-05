@@ -27,6 +27,7 @@ export type TextInputProps = {
   LabelPrependComponent?: React.ReactNode;
   clearable?: boolean;
   error?: string | boolean;
+  showErrorMessage: boolean;
   openOnDefault?: boolean;
   rounded?: RoundedCorner;
   theme?: TextInputTheme;
@@ -67,6 +68,7 @@ const TextInput: FunctionComponent<TextInputProps> = ({
   LabelPrependComponent = null,
   clearable = false,
   error = false,
+  showErrorMessage = true,
   openOnDefault = false,
   rounded = 'none',
   theme = 'default',
@@ -103,7 +105,7 @@ const TextInput: FunctionComponent<TextInputProps> = ({
         className={classNames(
           'transition-colors relative group',
           !!error ? 'bg-red-100 hover:bg-red-200/80' : colorTheme[theme],
-          !!error ? 'ring-2 ring-red-500' : '',
+          !!error ? 'border-2 border-red-500' : '',
           roundedMap[rounded]
         )}
       >
@@ -134,7 +136,7 @@ const TextInput: FunctionComponent<TextInputProps> = ({
               'absolute top-2 left-4',
               willShow ? 'opacity-1 scale-100' : 'opacity-0 scale-0',
               'uppercase font-extrabold text-xs',
-              labelColorTheme[theme]
+              !!error ? 'text-red-500' : labelColorTheme[theme]
             )}
             htmlFor={name}
           >
@@ -199,7 +201,9 @@ const TextInput: FunctionComponent<TextInputProps> = ({
           />
         </Stack>
       </div>
-      <div className='text-sm text-red-500'>{error}</div>
+      {showErrorMessage ? (
+        <div className='text-sm text-red-500'>{error}</div>
+      ) : null}
     </Stack>
   );
 };

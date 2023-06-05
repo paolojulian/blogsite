@@ -41,7 +41,7 @@ const TextAreaInput: FunctionComponent<TextAreaInputProps> = ({
         className={classNames(
           'transition-colors relative group',
           !!error ? 'bg-red-100 hover:bg-red-200/80' : colorTheme[theme],
-          !!error ? 'ring-2 ring-red-500' : ''
+          !!error ? 'border-2 border-red-500' : ''
         )}
       >
         <Stack className='absolute inset-0 h-full justify-center px-5 z-0 pointer-events-none text-left w-fit'>
@@ -69,8 +69,8 @@ const TextAreaInput: FunctionComponent<TextAreaInputProps> = ({
               'transition-transform',
               'absolute top-2 left-3',
               willShow ? 'opacity-1 scale-100' : 'opacity-0 scale-0',
-              'uppercase font-bold text-xs tracking-wide',
-              labelColorTheme[theme]
+              'uppercase font-bold text-sm tracking-wide',
+              !!error ? 'text-red-500' : labelColorTheme[theme]
             )}
             htmlFor={props.name}
           >
