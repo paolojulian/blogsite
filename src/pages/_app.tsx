@@ -1,12 +1,9 @@
-import { Inter } from '@next/font/google';
 import { AppProps } from 'next/app';
 import Providers from 'providers';
 import { useEffect } from 'react';
 import { getTheme } from '../lib/helpers';
 import '../styles/index.css';
 import '../styles/prism/prism-one-dark.css';
-
-const Font = Inter();
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -23,11 +20,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <style jsx global>{`
-        :root {
-          --font-family: ${Font.style.fontFamily};
-        }
-      `}</style>
       <Providers>
         <Component {...pageProps} />
       </Providers>
