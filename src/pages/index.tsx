@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import MainLayout from '../components/layouts/Main';
 import PostCard from '../components/molecules/PostCard';
-import apiClient from '../lib/axios';
 import { Post } from '../lib/models';
 
 export type HomeProps = {
@@ -21,13 +20,19 @@ const Home: FunctionComponent<HomeProps> = ({ data, preview }) => {
   );
 };
 
-export async function getServerSideProps() {
-  const response = await apiClient.get('/api/posts');
-  if (!response.ok) {
-    throw new Error();
-  }
+export async function getStaticProps() {
+  // const response = await apiClient.get('/api/posts');
+  // if (!response.ok) {
+  //   throw new Error();
+  // }
 
-  return { props: { data: response.data } };
+  return {
+    redirect: {
+      destination: '/portfolio',
+      permanent: true,
+    },
+  };
+  // return { props: { data: response.data } };
 }
 
 export default Home;

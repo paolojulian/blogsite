@@ -13,7 +13,7 @@ const Hero: FunctionComponent<HeroProps> = (props) => {
   return (
     <>
       {/* Parallax */}
-      <div className={classNames(styles.parallax)}>
+      <section id='home' className={classNames(styles.parallax)}>
         <div className='absolute inset-0 left-8'>
           <div className={classNames('sticky top-5 left-8')}>
             <Stack>
@@ -102,7 +102,7 @@ const Hero: FunctionComponent<HeroProps> = (props) => {
           priority
           className={classNames(styles.background)}
         />
-      </div>
+      </section>
     </>
   );
 };

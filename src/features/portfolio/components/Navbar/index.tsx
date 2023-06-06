@@ -1,26 +1,86 @@
+import classNames from 'classnames';
 import Row from 'layouts/Row';
 import Stack from 'layouts/Stack';
-import React, { FunctionComponent } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import React, { FunctionComponent, useEffect, useMemo, useState } from 'react';
 
 export type NavbarProps = {
   // No Props
 };
 
+const NavbarItem: FunctionComponent<{
+  name: string;
+  href: string;
+  isActive: boolean;
+}> = ({ name, href, isActive }) => (
+  <ul
+    className={classNames(
+      isActive ? 'text-orange-300' : 'text-slate-500',
+      'font-medium text-base'
+    )}
+  >
+    <Link href={href}>{name}</Link>
+  </ul>
+);
+
 const Navbar: FunctionComponent<NavbarProps> = (props) => {
+  const router = useRouter();
+  const [activeRoute, setActiveRoute] = useState('home');
+
+  const isActive = (hash?: string) => {
+    if (!hash) {
+      return router.asPath === '/portfolio';
+    }
+    return router.asPath === `/portfolio#${hash}`;
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const aboutSection = document.getElementById('about');
+      if (aboutSection) {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            // setIsAboutSectionActive(entry.isIntersecting);
+          },
+          { threshold: 0.5 } // Adjust the threshold as needed
+        );
+        observer.observe(aboutSection);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <Stack className='items-center justify-center sticky top-0 inset-x-0 py-4 bg-bg z-40'>
       <div className='mx-auto max-w-screen-lg w-full'>
         <Row className='justify-start items-center w-full'>
-          {/* <h1 className='font-black text-2xl text-slate-50 tracking-wide'>
-              <span className='text-slate-50'>PAOLO</span>
-              <span className='text-slate-400'>JULIAN</span>
-            </h1> */}
           <Row className='space-x-7'>
-            <ul className='text-orange-300 font-bold text-base'>Home</ul>
-            <ul className='text-slate-500 font-medium text-base'>About</ul>
-            <ul className='text-slate-500 font-medium text-base'>Portfolio</ul>
-            <ul className='text-slate-500 font-medium text-base'>Contact</ul>
-            <ul className='text-slate-500 font-medium text-base'>Components</ul>
+            <NavbarItem name='Home' href='#home' isActive={isActive('')} />
+            <NavbarItem
+              name='About'
+              href='#about'
+              isActive={isActive('about')}
+            />
+            <NavbarItem
+              name='Portfolio'
+              href='#portfolio'
+              isActive={isActive('portfolio')}
+            />
+            <NavbarItem
+              name='Career'
+              href='#career'
+              isActive={isActive('career')}
+            />
+            <NavbarItem
+              name='Contact'
+              href='#contact'
+              isActive={isActive('contact')}
+            />
           </Row>
         </Row>
       </div>

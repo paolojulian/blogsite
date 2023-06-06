@@ -8,6 +8,7 @@ export type AppButtonProps = {
   theme?: Theme;
   size?: Size;
   block?: boolean;
+  isSuccess?: boolean;
   isLoading?: boolean;
   rounded?: RoundedCorner;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
@@ -51,6 +52,7 @@ const AppButton: FunctionComponent<AppButtonProps> = ({
   block = true,
   disabled = false,
   isLoading = false,
+  isSuccess = false,
   rounded = 'full',
   size = 'base',
   theme = 'primary',
@@ -80,7 +82,11 @@ const AppButton: FunctionComponent<AppButtonProps> = ({
         sizeMap[size],
         roundedMap[rounded],
         !disabled && 'active:scale-[0.99]',
-        disabled ? disabledMap[theme] : backgroundMap[theme],
+        isSuccess
+          ? 'bg-green-400'
+          : disabled
+          ? disabledMap[theme]
+          : backgroundMap[theme],
         block ? 'w-full' : 'w-fit',
         theme === 'borders' ? 'm-2' : '',
         theme === 'borders'
@@ -93,7 +99,7 @@ const AppButton: FunctionComponent<AppButtonProps> = ({
       disabled={disabled}
     >
       <Row className='flex-1 justify-center items-center h-full w-full'>
-        {children}
+        {isSuccess ? <span className='font-bold'>Success!</span> : children}
       </Row>
     </button>
   );

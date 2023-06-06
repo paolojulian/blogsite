@@ -12,7 +12,7 @@ export type CareerProps = {
 
 const Career: FunctionComponent<CareerProps> = () => {
   return (
-    <div className='max-w-screen-lg mx-auto my-32 relative'>
+    <section id='career' className='max-w-screen-lg mx-auto my-32 relative'>
       <Stack className='bg-transparent text-white py-32 space-y-24 relative z-20'>
         <AnimateOnIntersect>
           <SectionHeader
@@ -139,7 +139,7 @@ const Career: FunctionComponent<CareerProps> = () => {
         width={1580}
         height={1024}
       />
-    </div>
+    </section>
   );
 };
 

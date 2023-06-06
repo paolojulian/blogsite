@@ -14,7 +14,10 @@ export type ProjectsProps = {
 const Projects: FunctionComponent<ProjectsProps> = () => {
   return (
     <>
-      <div className='items-center bg-transparent text-white py-32 space-y-24 relative'>
+      <section
+        id='portfolio'
+        className='items-center bg-transparent text-white py-32 space-y-24 relative'
+      >
         <div className='max-w-screen-lg mx-auto w-full'>
           <Stack className='space-y-4'>
             <AnimateOnIntersect>
@@ -161,7 +164,7 @@ const Projects: FunctionComponent<ProjectsProps> = () => {
             </div>
           </DraggableHorizontalScroll>
         </AnimateOnIntersect>
-      </div>
+      </section>
     </>
   );
 };

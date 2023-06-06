@@ -11,6 +11,7 @@ import * as Yup from 'yup';
 export type ContactFormProps = {
   onSubmit: (form: IContactForm) => Promise<void>;
   isSubmitting?: boolean;
+  isSuccess?: boolean;
 };
 
 export const contactFormSchema = Yup.object({
@@ -32,6 +33,7 @@ const initialValues: IContactForm = {
 const ContactForm: FunctionComponent<ContactFormProps> = ({
   onSubmit,
   isSubmitting = false,
+  isSuccess = false,
 }) => {
   return (
     <Formik
@@ -106,6 +108,7 @@ const ContactForm: FunctionComponent<ContactFormProps> = ({
               <AppButton
                 type='submit'
                 isLoading={isSubmitting}
+                isSuccess={isSuccess}
                 rounded='bottom'
               >
                 <Row className='space-x-2 items-center'>

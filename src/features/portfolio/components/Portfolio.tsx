@@ -15,6 +15,7 @@ const PortfolioPage: FunctionComponent<PortfolioPageProps> = () => {
     <div
       className='w-screen overflow-y-auto overflow-x-hidden h-screen'
       style={{
+        scrollBehavior: 'smooth',
         perspective: '10px',
       }}
     >
