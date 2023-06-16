@@ -1,6 +1,6 @@
 import classNames from 'classnames';
+import Stack from 'layouts/Stack';
 import React, { FunctionComponent } from 'react';
-import Stack from '../UI/Stack';
 
 export type AvatarNameProps = {
   size: number;

@@ -1,38 +1,42 @@
-import React, { FunctionComponent } from 'react';
-import MainLayout from '../components/layouts/Main';
-import PostCard from '../components/molecules/PostCard';
-import { Post } from '../lib/models';
+import PortfolioPage from 'features/portfolio/components/Portfolio';
 
-export type HomeProps = {
-  preview?: boolean;
-  data: Post[];
-};
+export default PortfolioPage;
 
-const Home: FunctionComponent<HomeProps> = ({ data, preview }) => {
-  return (
-    <MainLayout preview={preview}>
-      <>
-        {data.map((post) => (
-          <PostCard key={post.id} post={post} href='/posts/lorem-ipsum' />
-        ))}
-      </>
-    </MainLayout>
-  );
-};
+// import React, { FunctionComponent } from 'react';
+// import MainLayout from '../components/layouts/Main';
+// import PostCard from '../components/molecules/PostCard';
+// import { Post } from '../lib/models';
 
-export async function getStaticProps() {
-  // const response = await apiClient.get('/api/posts');
-  // if (!response.ok) {
-  //   throw new Error();
-  // }
+// export type HomeProps = {
+//   preview?: boolean;
+//   data: Post[];
+// };
 
-  return {
-    redirect: {
-      destination: '/portfolio',
-      permanent: true,
-    },
-  };
-  // return { props: { data: response.data } };
-}
+// const Home: FunctionComponent<HomeProps> = ({ data, preview }) => {
+//   return (
+//     <MainLayout preview={preview}>
+//       <>
+//         {data.map((post) => (
+//           <PostCard key={post.id} post={post} href='/posts/lorem-ipsum' />
+//         ))}
+//       </>
+//     </MainLayout>
+//   );
+// };
 
-export default Home;
+// export async function getStaticProps() {
+//   // const response = await apiClient.get('/api/posts');
+//   // if (!response.ok) {
+//   //   throw new Error();
+//   // }
+
+//   return {
+//     redirect: {
+//       destination: '/portfolio',
+//       permanent: true,
+//     },
+//   };
+//   // return { props: { data: response.data } };
+// }
+
+// export default Home;
