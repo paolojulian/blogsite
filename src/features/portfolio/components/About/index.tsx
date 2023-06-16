@@ -10,6 +10,7 @@ import Stack from 'layouts/Stack';
 import React, { FunctionComponent } from 'react';
 import TextHighlight from '../common/TextHighlight';
 import AboutSectionHeader from './SectionHeader';
+import Container from 'components/layouts/Container';
 
 export type AboutProps = {
   // No Props
@@ -19,7 +20,7 @@ const About: FunctionComponent<AboutProps> = () => {
   return (
     <section id='about'>
       <Stack className='items-center bg-transparent text-white py-60 space-y-24'>
-        <div className='max-w-screen-lg mx-auto'>
+        <Container>
           <Row className='items-center space-x-8'>
             <AnimateOnIntersect type='fadeFromRight'>
               <Stack className='justify-center items-center space-y-4'>
@@ -82,7 +83,7 @@ const About: FunctionComponent<AboutProps> = () => {
               </AnimateOnIntersect>
             </Stack>
           </Row>
-        </div>
+        </Container>
       </Stack>
     </section>
   );

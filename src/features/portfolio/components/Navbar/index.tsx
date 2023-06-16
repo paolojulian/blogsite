@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import Container from 'components/layouts/Container';
 import Row from 'layouts/Row';
 import Stack from 'layouts/Stack';
 import Link from 'next/link';
@@ -57,7 +58,7 @@ const Navbar: FunctionComponent<NavbarProps> = (props) => {
 
   return (
     <Stack className='items-center justify-center sticky top-0 inset-x-0 py-4 bg-bg z-40'>
-      <div className='mx-auto max-w-screen-lg w-full'>
+      <Container>
         <Row className='justify-start items-center w-full'>
           <Row className='space-x-7'>
             <NavbarItem name='Home' href='#home' isActive={isActive('')} />
@@ -83,7 +84,7 @@ const Navbar: FunctionComponent<NavbarProps> = (props) => {
             />
           </Row>
         </Row>
-      </div>
+      </Container>
     </Stack>
   );
 };

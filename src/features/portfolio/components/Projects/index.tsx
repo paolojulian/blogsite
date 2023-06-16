@@ -6,6 +6,7 @@ import React, { FunctionComponent } from 'react';
 import SectionHeader from '../common/SectionHeader';
 import ProjectCard from './ProjectCard';
 import AnimateOnIntersect from 'components/Animations/AnimateOnIntersect';
+import Container from 'components/layouts/Container';
 
 export type ProjectsProps = {
   // No Props
@@ -18,7 +19,7 @@ const Projects: FunctionComponent<ProjectsProps> = () => {
         id='portfolio'
         className='items-center bg-transparent text-white py-32 space-y-24 relative'
       >
-        <div className='max-w-screen-lg mx-auto w-full'>
+        <Container>
           <Stack className='space-y-4'>
             <AnimateOnIntersect>
               <SectionHeader
@@ -27,7 +28,7 @@ const Projects: FunctionComponent<ProjectsProps> = () => {
               />
             </AnimateOnIntersect>
           </Stack>
-        </div>
+        </Container>
         <div className='absolute -top-20 left-0 h-full w-auto'>
           <Image
             draggable={false}
