@@ -100,7 +100,7 @@ const Hero: FunctionComponent<HeroProps> = (props) => {
           quality={90}
           alt='Background'
           priority
-          className={classNames(styles.background)}
+          className={classNames(styles.background, styles['parallax__0'])}
         />
       </section>
     </>

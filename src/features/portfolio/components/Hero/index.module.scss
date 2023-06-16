@@ -3,7 +3,7 @@
   transform-style: preserve-3d;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   height: 100%;
   z-index: -100;
@@ -27,30 +27,34 @@ $parallax__layers: 8;
 //   }
 // }
 
+.parallax__0 {
+  transform: translateY(2px);
+}
+
 .parallax__1 {
-  transform: translateZ(-2px) scale(1.2);
+  transform: translateZ(-2px) translateX(-2px) scale(1.2);
 }
 
 .parallax__2 {
-  transform: translateZ(-5px) scale(1.5);
+  transform: translateZ(-5px) translateX(-2px) scale(1.5);
 }
 .parallax__3 {
-  transform: translateZ(-15px) scale(2.5);
+  transform: translateZ(-15px) translateX(-2px) scale(2.5);
 }
 .parallax__4 {
-  transform: translateZ(-15px) scale(2.5);
+  transform: translateZ(-15px) translateX(-2px) scale(2.5);
 }
 .parallax__5 {
-  transform: translateZ(-15px) scale(2.5);
+  transform: translateZ(-15px) translateX(-2px) scale(2.5);
 }
 .parallax__6 {
-  transform: translateZ(-25px) scale(3.5);
+  transform: translateZ(-25px) translateX(-2px) scale(3.5);
 }
 .parallax__7 {
-  transform: translateZ(-40px) scale(5);
+  transform: translateZ(-40px) translateX(-2px) scale(5);
 }
 .parallax__8 {
-  transform: translateZ(-40px) scale(5);
+  transform: translateZ(-40px) translateX(-2px) scale(5);
   background: linear-gradient(
       0deg,
       rgba(255, 159, 77, 0.2),
